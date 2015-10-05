@@ -10,6 +10,19 @@ public class MotoRentals {
     public MotoRentals() {
     }
 
+    
+    
+    public void loguearse() {
+        String usuario;
+        String contraseña;
+        do {
+            escriu("Usuario: ");
+            usuario = llegeixString();
+            escriu("Contraseña: ");
+            contraseña = llegeixString();
+            
+        }
+    }
     /**
      * Es la pagina principal del menu
      * 
@@ -45,6 +58,7 @@ public class MotoRentals {
             escriu("5. Comprobar Reserva Moto");
             escriu("6. Solicitar Motos");
             escriu("7. Actualizar Estado Motos");
+            
             switch(opcion){
                 case 5:
                     
@@ -64,6 +78,7 @@ public class MotoRentals {
             escriu("6. Rellenar Local");
             escriu("7. Informe del Mes");
             escriu("8. Gestionar Motos");
+            
             switch(opcion){
                 case 5:
                     
@@ -98,7 +113,7 @@ public class MotoRentals {
     public int solicitarOpcion() {
         escriu("\n>> Escoge una opcion: ");
         int opcion;
-        llegeixInt(option);
+        option = llegeixInt();
         escriu("");
         return opcion;
     }
