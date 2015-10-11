@@ -1,27 +1,35 @@
 package vista;
 
+import java.util.Date;
+import java.util.Scanner;
+
 /**
  * Clase de menu del programa.
  *
  * @author Bogdan Marcut, Ivan Toro, Marc Valdivia
  */
 public class MotoRentals {
+    
+    private String usuario;         //usuario test:     admin
+    private String contraseña;      //contraseña test:  pass
+    private int privilegio;
 
     public MotoRentals() {
+        this.usuario = "";
+        this.contraseña = "";
+        this.privilegio = 0;
     }
-
-    
     
     public void loguearse() {
-        String usuario;
-        String contraseña;
         do {
             escriu("Usuario: ");
-            usuario = llegeixString();
+            this.usuario = llegeixString();
             escriu("Contraseña: ");
-            contraseña = llegeixString();
-            
+            this.contraseña = llegeixString();
         }
+        while(!this.usuario.equals("admin") && !this.contraseña.equals("pass"));
+        this.escriu("TEST: Elige el tipo de usuaio (1-cliente, 2-gerente, 3-propietario):");
+        this.privilegio = this.llegeixInt();
     }
     /**
      * Es la pagina principal del menu
@@ -30,6 +38,7 @@ public class MotoRentals {
     public void gestionVista() {
         int opcion;
         
+        this.loguearse();
         do {
             escriu("");
             escriu("*************** Menu ***************");
@@ -42,7 +51,7 @@ public class MotoRentals {
                 
             switch(opcion) {
                 case 1:
-
+                    
                     break;
 
                 case 2:
@@ -53,8 +62,9 @@ public class MotoRentals {
                     
                     break;
             }
-            
-        if(user instanceof Gerente) {
+        
+        //if(user instanceof Gerente) en el caso que el programa es completo
+        if(this.privilegio == 1) {
             escriu("5. Comprobar Reserva Moto");
             escriu("6. Solicitar Motos");
             escriu("7. Actualizar Estado Motos");
@@ -73,7 +83,9 @@ public class MotoRentals {
                     break;
             }
         }
-        if(user instanceof Propietario) {
+        
+        //if(user instanceof Propietario) en el caso que el programa es completo
+        if(this.privilegio == 2) {
             escriu("5. Guardar Informacion Cliente");
             escriu("6. Rellenar Local");
             escriu("7. Informe del Mes");
@@ -97,9 +109,7 @@ public class MotoRentals {
                     break;
             }
         }
-        
-        
-        
+
         escriu("************************************");
         
         } while (opcion != 0);
@@ -113,8 +123,39 @@ public class MotoRentals {
     public int solicitarOpcion() {
         escriu("\n>> Escoge una opcion: ");
         int opcion;
-        option = llegeixInt();
+        opcion = llegeixInt();
         escriu("");
         return opcion;
+    }
+    
+    
+    public void escriu(String s){
+        System.out.println(s);
+    }
+    
+    public void escriu(int i){
+        System.out.println(i);
+    }
+    
+    public void escriu(float f){
+        System.out.println(f);
+    }
+    
+    public void escriu(Date d){
+        System.out.println(d);
+    }
+    
+    public int llegeixInt(){
+        Scanner sc = new Scanner(System.in);
+        return sc.nextInt();
+    }
+    
+    public String llegeixString(){
+        Scanner sc = new Scanner(System.in);
+        return sc.next();
+    }
+    
+    public Date LlegeixDataSistema(){
+        return new Date();
     }
 }
