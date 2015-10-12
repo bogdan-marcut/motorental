@@ -40,79 +40,116 @@ public class MotoRentals {
         
         this.loguearse();
         do {
-            escriu("");
-            escriu("*************** Menu ***************");
-            escriu("0. Salir");
-            escriu("1. Actualizar Datos");
-            escriu("2. Solicitar Reserva Moto");
-            escriu("3. Darse de Baja");
+            this.escriu("");
+            this.escriu("*************** Menu ***************");
+            this.escriu("0. Salir");
+            this.escriu("1. Actualizar Datos");
+            this.escriu("2. Solicitar Reserva Moto");
+            this.escriu("3. Darse de Baja");
+            if(this.privilegio == 2) {
+                this.escriu("4. Comprobar Reserva Moto");
+                this.escriu("5. Solicitar Motos");
+                this.escriu("6. Actualizar Estado Motos");
+            }
+            else if(this.privilegio == 3) {
+                this.escriu("4. Guardar Informacion Cliente");
+                this.escriu("5. Rellenar Local");
+                this.escriu("6. Informe del Mes");
+                this.escriu("7. Gestionar Motos");
+            }
             
-            opcion = solicitarOpcion();
+            opcion = solicitarOpcion(); 
                 
             switch(opcion) {
                 case 1:
-                    
+                    this.escriu("La accion se ha realizado corectamente");
                     break;
 
                 case 2:
-                    
+                    this.escriu("La accion se ha realizado corectamente");
                     break;
 
                 case 3:
-                    
+                    this.escriu("La accion se ha realizado corectamente");
+                    this.loguearse();
                     break;
-            }
-        
-        //if(user instanceof Gerente) en el caso que el programa es completo
-        if(this.privilegio == 1) {
-            escriu("5. Comprobar Reserva Moto");
-            escriu("6. Solicitar Motos");
-            escriu("7. Actualizar Estado Motos");
-            
-            switch(opcion){
-                case 5:
                     
+                case 4:
+                    if(this.privilegio == 2){
+                        this.gestionarReservas();
+                    }
+                    else if(this.privilegio == 3){
+                        this.escriu("La accion se ha realizado corectamente");
+                    }
+                    break;
+                    
+                case 5:
+                    if(this.privilegio == 2){
+                        this.escriu("La accion se ha realizado corectamente");
+                    }
+                    else if(this.privilegio == 3){
+                        this.escriu("La accion se ha realizado corectamente");
+                    }
                     break;
                     
                 case 6:
-                    
+                    if(this.privilegio == 2){
+                        this.escriu("La accion se ha realizado corectamente");
+                    }
+                    else if(this.privilegio == 3){
+                        this.escriu("La accion se ha realizado corectamente");
+                    }
                     break;
                     
                 case 7:
-                    
+                    if(this.privilegio == 3){
+                        this.gestionarMotos();
+                    }
                     break;
             }
-        }
-        
-        //if(user instanceof Propietario) en el caso que el programa es completo
-        if(this.privilegio == 2) {
-            escriu("5. Guardar Informacion Cliente");
-            escriu("6. Rellenar Local");
-            escriu("7. Informe del Mes");
-            escriu("8. Gestionar Motos");
-            
-            switch(opcion){
-                case 5:
-                    
-                    break;
-                    
-                case 6:
-                    
-                    break;
-                    
-                case 7:
-                    
-                    break;
-                    
-                case 8:
-                    
-                    break;
-            }
-        }
-
         escriu("************************************");
         
-        } while (opcion != 0);
+        } while(opcion != 0);
+    }
+    
+    public void gestionarReservas(){
+        int opcion;
+        do{
+            this.escriu("*************** Menu ***************");
+            this.escriu("0. Volver");
+            this.escriu("1. Proporcionar Moto");
+            this.escriu("2. Reservar Moto");
+            opcion = solicitarOpcion(); 
+            switch(opcion) {
+                case 1:
+                    this.escriu("La accion se ha realizado corectamente");
+                    break;
+
+                case 2:
+                    this.escriu("La accion se ha realizado corectamente");
+                    break;
+            }
+        } while(opcion != 0);
+    }
+    
+    public void gestionarMotos(){
+        int opcion;
+        do{
+            this.escriu("*************** Menu ***************");
+            this.escriu("0. Volver");
+            this.escriu("1. Dar de Alta Moto");
+            this.escriu("2. Dar de Baja Moto");
+            opcion = solicitarOpcion(); 
+            switch(opcion) {
+                case 1:
+                    this.escriu("La accion se ha realizado corectamente");
+                    break;
+
+                case 2:
+                    this.escriu("La accion se ha realizado corectamente");
+                    break;
+            }
+        } while(opcion != 0);
     }
 
     /**
