@@ -54,6 +54,7 @@ public class MotoRentals {
         this.escriu("************************************");
         } while(opcion != 2);
         
+        
     }
     /**
      * Es la pagina principal del menu
