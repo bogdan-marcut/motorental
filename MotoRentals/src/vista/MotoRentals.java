@@ -21,15 +21,39 @@ public class MotoRentals {
     }
     
     public void loguearse() {
+        int opcion;
+        String user;
+        String pass;
         do {
-            escriu("Usuario: ");
-            this.usuario = llegeixString();
-            escriu("Contraseña: ");
-            this.contraseña = llegeixString();
-        }
-        while(!this.usuario.equals("admin") && !this.contraseña.equals("pass"));
-        this.escriu("TEST: Elige el tipo de usuaio (1-cliente, 2-gerente, 3-propietario):");
-        this.privilegio = this.llegeixInt();
+            this.escriu("");
+            this.escriu("*************** Menu ***************");
+            this.escriu("1. Registrarse");
+            this.escriu("2. Loguearse");
+            
+            opcion = solicitarOpcion(); 
+            switch(opcion) {
+                case 1:
+                    this.escriu("Introduzca el nombre de usuario: ");
+                    this.usuario = this.llegeixString();
+                    this.escriu("Introduzca la contraseña: ");
+                    this.contraseña = this.llegeixString();
+                    this.escriu("TEST: Elige el tipo de usuaio (1-cliente, 2-gerente, 3-propietario):");
+                    this.privilegio = this.llegeixInt();
+                    break;
+
+                case 2:
+                    do {
+                        this.escriu("Usuario: ");
+                        user = llegeixString();
+                        this.escriu("Contraseña: ");
+                        pass = llegeixString();
+                    }
+                    while(!this.usuario.equals(user) && !this.contraseña.equals(pass));
+                    break;
+            }
+        this.escriu("************************************");
+        } while(opcion != 2);
+        
     }
     /**
      * Es la pagina principal del menu
