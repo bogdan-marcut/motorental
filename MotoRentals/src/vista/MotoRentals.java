@@ -20,7 +20,7 @@ public class MotoRentals {
         this.privilegio = 0;
     }
     
-    public void loguearse() {
+    public void gestionVista() {
         int opcion;
         String user;
         String pass;
@@ -28,7 +28,8 @@ public class MotoRentals {
             this.escriu("");
             this.escriu("*************** Menu ***************");
             this.escriu("1. Registrarse");
-            this.escriu("2. Loguearse");
+            this.escriu("2. Logarse");
+            this.escriu("3. Salir");
             
             opcion = solicitarOpcion(); 
             switch(opcion) {
@@ -37,7 +38,7 @@ public class MotoRentals {
                     this.usuario = this.llegeixString();
                     this.escriu("Introduzca la contraseña: ");
                     this.contraseña = this.llegeixString();
-                    this.escriu("TEST: Elige el tipo de usuaio (1-cliente, 2-gerente, 3-propietario):");
+                    this.escriu("TEST: Elige el tipo de usuaio (1-cliente, 2-gerente, 3-propietario, 4-admin):");
                     this.privilegio = this.llegeixInt();
                     break;
 
@@ -51,40 +52,36 @@ public class MotoRentals {
                     while(!this.usuario.equals(user) && !this.contraseña.equals(pass));
                     break;
             }
+            if(opcion == 2){
+                if(this.privilegio == 1)
+                    this.menuCliente();
+                else if(this.privilegio == 2)
+                    this.menuGerente();
+                else if(this.privilegio == 3)
+                    this.menuPropietario();
+                else if(this.privilegio == 4)
+                    this.menuAdministrador();
+            }
+            
         this.escriu("************************************");
-        } while(opcion != 2);
-        
-        
+        } while(opcion != 3);
+
     }
     /**
      * Es la pagina principal del menu
      * 
      */
-    public void gestionVista() {
+    public void menuCliente() {
         int opcion;
-        
-        this.loguearse();
         do {
             this.escriu("");
             this.escriu("*************** Menu ***************");
-            this.escriu("0. Salir");
-            this.escriu("1. Actualizar Datos");
-            this.escriu("2. Solicitar Reserva Moto");
+            this.escriu("1. Solicitar Reserva Moto");
+            this.escriu("2. Actualizar Datos");
             this.escriu("3. Darse de Baja");
-            if(this.privilegio == 2) {
-                this.escriu("4. Comprobar Reserva Moto");
-                this.escriu("5. Solicitar Motos");
-                this.escriu("6. Actualizar Estado Motos");
-            }
-            else if(this.privilegio == 3) {
-                this.escriu("4. Guardar Informacion Cliente");
-                this.escriu("5. Rellenar Local");
-                this.escriu("6. Informe del Mes");
-                this.escriu("7. Gestionar Motos");
-            }
+            this.escriu("4. Log Out");
             
-            opcion = solicitarOpcion(); 
-                
+            opcion = solicitarOpcion();
             switch(opcion) {
                 case 1:
                     this.escriu("La accion se ha realizado corectamente");
@@ -96,54 +93,109 @@ public class MotoRentals {
 
                 case 3:
                     this.escriu("La accion se ha realizado corectamente");
-                    this.loguearse();
+                    break;
+            }
+            escriu("************************************");
+        } while(opcion != 4 && opcion != 3);
+    }
+    
+    public void menuGerente(){
+        int opcion;
+        do {
+            this.escriu("");
+            this.escriu("*************** Menu ***************");
+            this.escriu("1. Comprobar Reserva Moto");
+            this.escriu("2. Solicitar Motos");
+            this.escriu("3. Actualizar Estado Motos");
+            this.escriu("4. Log Out");
+             
+            opcion = solicitarOpcion(); 
+            switch(opcion) {
+                case 1:
+                    this.gestionarReservas();
+                    break;
+                    
+                case 2:
+                    this.escriu("La accion se ha realizado corectamente");
+                    break;
+                    
+                case 3:
+                    this.escriu("La accion se ha realizado corectamente");
+                    break;
+            }
+            escriu("************************************");
+        } while(opcion != 4);
+    }
+    
+    public void menuPropietario(){
+        int opcion;
+        do {
+            this.escriu("");
+            this.escriu("*************** Menu ***************");
+            this.escriu("1. Guardar Informacion del Cliente");
+            this.escriu("2. Rellenar Local");
+            this.escriu("3. Ver Informacion de Todos los Locales");
+            this.escriu("4. Ver Informe del Mes");
+            this.escriu("5. Log Out");
+             
+            opcion = solicitarOpcion(); 
+            switch(opcion) {
+                case 1:
+                    this.escriu("La accion se ha realizado corectamente");
+                    break;
+                    
+                case 2:
+                    this.escriu("La accion se ha realizado corectamente");
+                    break;
+                    
+                case 3:
+                    this.escriu("La accion se ha realizado corectamente");
                     break;
                     
                 case 4:
-                    if(this.privilegio == 2){
-                        this.gestionarReservas();
-                    }
-                    else if(this.privilegio == 3){
-                        this.escriu("La accion se ha realizado corectamente");
-                    }
-                    break;
-                    
-                case 5:
-                    if(this.privilegio == 2){
-                        this.escriu("La accion se ha realizado corectamente");
-                    }
-                    else if(this.privilegio == 3){
-                        this.escriu("La accion se ha realizado corectamente");
-                    }
-                    break;
-                    
-                case 6:
-                    if(this.privilegio == 2){
-                        this.escriu("La accion se ha realizado corectamente");
-                    }
-                    else if(this.privilegio == 3){
-                        this.escriu("La accion se ha realizado corectamente");
-                    }
-                    break;
-                    
-                case 7:
-                    if(this.privilegio == 3){
-                        this.gestionarMotos();
-                    }
+                    this.escriu("La accion se ha realizado corectamente");
                     break;
             }
-        escriu("************************************");
-        
-        } while(opcion != 0);
+            escriu("************************************");
+        } while(opcion != 5);
+    }
+    
+    public void menuAdministrador(){
+        int opcion;
+        do {
+            this.escriu("");
+            this.escriu("*************** Menu ***************");
+            this.escriu("1. Gestionar Gerentes");
+            this.escriu("2. Gestionar Locales");
+            this.escriu("3. Cargar Datos");
+            this.escriu("4. Log Out");
+            
+            opcion = solicitarOpcion(); 
+            switch(opcion) {
+                case 1:
+                    this.gestionarGerentes();
+                    break;
+                    
+                case 2:
+                    this.gestionarLocales();
+                    break;
+                    
+                case 3:
+                    this.escriu("La accion se ha realizado corectamente");
+                    break;
+            }
+            escriu("************************************");
+        } while(opcion != 4);
     }
     
     public void gestionarReservas(){
         int opcion;
         do{
             this.escriu("*************** Menu ***************");
-            this.escriu("0. Volver");
             this.escriu("1. Proporcionar Moto");
             this.escriu("2. Reservar Moto");
+            this.escriu("3. Volver");
+            
             opcion = solicitarOpcion(); 
             switch(opcion) {
                 case 1:
@@ -154,16 +206,63 @@ public class MotoRentals {
                     this.escriu("La accion se ha realizado corectamente");
                     break;
             }
-        } while(opcion != 0);
+        } while(opcion != 3);
     }
     
+    public void gestionarGerentes(){
+        int opcion;
+        do{
+            this.escriu("*************** Menu ***************");
+            this.escriu("1. Dar de Alta Gerente");
+            this.escriu("2. Dar de Baja Gerente");
+            this.escriu("3. Volver");
+            
+            opcion = solicitarOpcion(); 
+            switch(opcion) {
+                case 1:
+                    this.escriu("La accion se ha realizado corectamente");
+                    break;
+
+                case 2:
+                    this.escriu("La accion se ha realizado corectamente");
+                    break;
+            }
+        } while(opcion != 3);
+    }
+    
+    public void gestionarLocales(){
+        int opcion;
+        do{
+            this.escriu("*************** Menu ***************");
+            this.escriu("1. Dar de Alta Local");
+            this.escriu("2. Dar de Baja Local");
+            this.escriu("3. Gestionar Motos");
+            this.escriu("4. Volver");
+            
+            opcion = solicitarOpcion(); 
+            switch(opcion) {
+                case 1:
+                    this.escriu("La accion se ha realizado corectamente");
+                    break;
+
+                case 2:
+                    this.escriu("La accion se ha realizado corectamente");
+                    break;
+                
+                case 3:
+                    this.gestionarMotos();
+                    break;
+            }
+        } while(opcion != 4);
+    }
+        
     public void gestionarMotos(){
         int opcion;
         do{
             this.escriu("*************** Menu ***************");
-            this.escriu("0. Volver");
             this.escriu("1. Dar de Alta Moto");
             this.escriu("2. Dar de Baja Moto");
+            this.escriu("3. Volver");
             opcion = solicitarOpcion(); 
             switch(opcion) {
                 case 1:
@@ -174,9 +273,9 @@ public class MotoRentals {
                     this.escriu("La accion se ha realizado corectamente");
                     break;
             }
-        } while(opcion != 0);
+        } while(opcion != 3);
     }
-
+    
     /**
      * Devuelve una opcion seleccionada por el usuario.
      *
