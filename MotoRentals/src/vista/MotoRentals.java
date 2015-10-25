@@ -10,16 +10,24 @@ import java.util.Scanner;
  */
 public class MotoRentals {
     
-    private String usuario;         //usuario test:     admin
-    private String contraseña;      //contraseña test:  pass
+    private String usuario;
+    private String contraseña;
     private int privilegio;
 
+    /**
+     * Constructor del menu.
+     * 
+     */
     public MotoRentals() {
         this.usuario = "";
         this.contraseña = "";
         this.privilegio = 0;
     }
     
+    /**
+     * Es la pagina principal del menu.
+     * 
+     */
     public void gestionVista() {
         int opcion;
         String user;
@@ -67,8 +75,9 @@ public class MotoRentals {
         } while(opcion != 3);
 
     }
+
     /**
-     * Es la pagina principal del menu
+     * Es el menu del los usuarios que tienen privilegio de Cliente.
      * 
      */
     public void menuCliente() {
@@ -99,6 +108,10 @@ public class MotoRentals {
         } while(opcion != 4 && opcion != 3);
     }
     
+    /**
+     * Es el menu del los usuarios que tienen privilegio de Gerente.
+     * 
+     */
     public void menuGerente(){
         int opcion;
         do {
@@ -127,6 +140,10 @@ public class MotoRentals {
         } while(opcion != 4);
     }
     
+    /**
+     * Es el menu del los usuarios que tienen privilegio de Propietario.
+     * 
+     */
     public void menuPropietario(){
         int opcion;
         do {
@@ -160,6 +177,10 @@ public class MotoRentals {
         } while(opcion != 5);
     }
     
+    /**
+     * Es el menu del los usuarios que tienen privilegio de Administrador.
+     * 
+     */
     public void menuAdministrador(){
         int opcion;
         do {
@@ -188,6 +209,10 @@ public class MotoRentals {
         } while(opcion != 4);
     }
     
+    /**
+     * Es el submenu del Gerente para gestionar las reservas.
+     * 
+     */
     public void gestionarReservas(){
         int opcion;
         do{
@@ -209,6 +234,9 @@ public class MotoRentals {
         } while(opcion != 3);
     }
     
+    /**
+     * Es el submenu del Administrador que añade o quita Gerentes.
+     */
     public void gestionarGerentes(){
         int opcion;
         do{
@@ -230,6 +258,10 @@ public class MotoRentals {
         } while(opcion != 3);
     }
     
+    /**
+     * Es el submenu del Administrador que añade o quita locales.
+     * 
+     */
     public void gestionarLocales(){
         int opcion;
         do{
@@ -256,6 +288,9 @@ public class MotoRentals {
         } while(opcion != 4);
     }
         
+    /**
+     * Es el submenu del Administrador que añade o quita motos.
+     */
     public void gestionarMotos(){
         int opcion;
         do{
@@ -289,34 +324,68 @@ public class MotoRentals {
         return opcion;
     }
     
-    
+    /**
+     * Escribe por pantalla un string.
+     * 
+     * @param s String a imprimir
+     */
     public void escriu(String s){
         System.out.println(s);
     }
     
+    /**
+     * Escribe por pantalla un int.
+     * 
+     * @param i int a imprimir
+     */
     public void escriu(int i){
         System.out.println(i);
     }
     
+    /**
+     * Escribe por pantalla un float.
+     * 
+     * @param f float a imprimir
+     */
     public void escriu(float f){
         System.out.println(f);
     }
     
+    /**
+     * Escribe por pantalla una data.
+     * 
+     * @param d Date a imprimir 
+     */
     public void escriu(Date d){
         System.out.println(d);
     }
     
+    /**
+     * Lee un int y lo devuelve.
+     * 
+     * @return 
+     */
     public int llegeixInt(){
         Scanner sc = new Scanner(System.in);
         return sc.nextInt();
     }
     
+    /**
+     * Lee un string y lo devuelve.
+     * 
+     * @return 
+     */
     public String llegeixString(){
         Scanner sc = new Scanner(System.in);
         return sc.next();
     }
     
-    public Date LlegeixDataSistema(){
+    /**
+     * Lee la data del sistema y lo devuelve.
+     * 
+     * @return 
+     */
+    public Date llegeixDataSistema(){
         return new Date();
     }
 }
