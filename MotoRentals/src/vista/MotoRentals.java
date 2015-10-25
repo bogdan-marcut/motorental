@@ -14,7 +14,7 @@ public class MotoRentals {
     private String contraseña;
     private int privilegio;
 
-        /**
+    /**
      * Constructor del menu.
      * Puede haber solamente un usuario de momento.
      *
