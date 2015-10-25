@@ -14,9 +14,13 @@ public class MotoRentals {
     private String contraseña;
     private int privilegio;
 
-    /**
+        /**
      * Constructor del menu.
-     * 
+     * Puede haber solamente un usuario de momento.
+     *
+     * usuario: el nombre de usuario
+     * contraseña: la contraseña del usuario
+     * privilegio: el tipo de usuario (Cliente, Gerente, Propietario o Administrador)
      */
     public MotoRentals() {
         this.usuario = "";
@@ -363,7 +367,7 @@ public class MotoRentals {
     /**
      * Lee un int y lo devuelve.
      * 
-     * @return 
+     * @return int
      */
     public int llegeixInt(){
         Scanner sc = new Scanner(System.in);
@@ -373,7 +377,7 @@ public class MotoRentals {
     /**
      * Lee un string y lo devuelve.
      * 
-     * @return 
+     * @return String
      */
     public String llegeixString(){
         Scanner sc = new Scanner(System.in);
@@ -383,7 +387,7 @@ public class MotoRentals {
     /**
      * Lee la data del sistema y lo devuelve.
      * 
-     * @return 
+     * @return Date
      */
     public Date llegeixDataSistema(){
         return new Date();
