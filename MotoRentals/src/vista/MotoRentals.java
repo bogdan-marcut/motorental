@@ -65,14 +65,21 @@ public class MotoRentals {
                     break;
             }
             if(opcion == 2){
-                if(this.privilegio == 1)
-                    this.menuCliente();
-                else if(this.privilegio == 2)
-                    this.menuGerente();
-                else if(this.privilegio == 3)
-                    this.menuPropietario();
-                else if(this.privilegio == 4)
-                    this.menuAdministrador();
+                switch (this.privilegio) {
+                    case 1:
+                        this.menuCliente();
+                        break;
+                    case 2:
+                        this.menuGerente();
+                        break;
+                    case 3:
+                        this.menuPropietario();
+                        break;
+                    case 4:
+                        this.menuAdministrador();
+                        break;
+                    default:
+                }
             }
             
         this.escriu("************************************");
