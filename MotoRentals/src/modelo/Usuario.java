@@ -3,7 +3,7 @@ package modelo;
 import java.util.Date;
 
 /**
- * Clase general de usuarios.
+ * Clase general de usuario.
  *
  * @author Bogdan Marcut, Ivan Toro, Marc Valdivia
  */

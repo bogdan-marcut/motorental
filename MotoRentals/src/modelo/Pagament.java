@@ -1,7 +1,7 @@
 package modelo;
 
 /**
- * Clase Reserva.
+ * Clase pagament.
  *
  * @author Bogdan Marcut, Ivan Toro, Marc Valdivia
  */

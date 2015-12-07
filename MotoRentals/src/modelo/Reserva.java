@@ -3,7 +3,7 @@ package modelo;
 import java.util.Date;
 
 /**
- * Clase Reserva.
+ * Clase reserva.
  *
  * @author Bogdan Marcut, Ivan Toro, Marc Valdivia
  */
