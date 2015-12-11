@@ -163,7 +163,7 @@ public class Local {
         Iterator<Moto> iterador = this.motos.iterator();
         while(iterador.hasNext()){
             Moto m = iterador.next();
-            if(m.getId() == idMoto){
+            if(m.getId().equals(idMoto)){
                 this.eliminarMoto(m);
                 return m;
             }

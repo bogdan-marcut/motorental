@@ -126,4 +126,15 @@ public abstract class Usuario {
         this.contrasenya = contrasenya;
     }
     
+    public boolean isAdministrador(){
+        return this instanceof Administrador;
+    }
+    
+    public boolean isCliente(){
+        return this instanceof Cliente;
+    }
+    
+    public boolean isGerente(){
+        return this instanceof Gerente;
+    }
 }

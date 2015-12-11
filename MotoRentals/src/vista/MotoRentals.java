@@ -1,5 +1,6 @@
 package vista;
 
+import controlador.MotoRental;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -10,9 +11,7 @@ import java.util.Scanner;
  */
 public class MotoRentals {
     
-    private String usuario;
-    private String contraseña;
-    private int privilegio;
+    private MotoRental control;
 
     /**
      * Constructor del menu.
@@ -23,9 +22,7 @@ public class MotoRentals {
      * privilegio: el tipo de usuario (Cliente, Gerente, Propietario o Administrador)
      */
     public MotoRentals() {
-        this.usuario = "";
-        this.contraseña = "";
-        this.privilegio = 0;
+        this.control = new MotoRental();
     }
     
     /**
@@ -36,6 +33,8 @@ public class MotoRentals {
         int opcion;
         String user;
         String pass;
+        String privilegio = "anonimo";
+        
         do {
             this.escriu("");
             this.escriu("*************** Menu ***************");
@@ -47,11 +46,9 @@ public class MotoRentals {
             switch(opcion) {
                 case 1:
                     this.escriu("Introduzca el nombre de usuario: ");
-                    this.usuario = this.llegeixString();
+                    
                     this.escriu("Introduzca la contraseña: ");
-                    this.contraseña = this.llegeixString();
-                    this.escriu("TEST: Elige el tipo de usuaio (1-cliente, 2-gerente, 3-propietario, 4-admin):");
-                    this.privilegio = this.llegeixInt();
+                    
                     break;
 
                 case 2:
@@ -60,22 +57,23 @@ public class MotoRentals {
                         user = llegeixString();
                         this.escriu("Contraseña: ");
                         pass = llegeixString();
+                        privilegio = this.control.tipoUsuario(user, pass);
                     }
-                    while(!this.usuario.equals(user) && !this.contraseña.equals(pass));
+                    while(privilegio.equals("anonimo"));
                     break;
             }
             if(opcion == 2){
-                switch (this.privilegio) {
-                    case 1:
+                switch (privilegio) {
+                    case "cliente":
                         this.menuCliente();
                         break;
-                    case 2:
+                    case "gerente":
                         this.menuGerente();
                         break;
-                    case 3:
+                    case "propietario":
                         this.menuPropietario();
                         break;
-                    case 4:
+                    case "administrador":
                         this.menuAdministrador();
                         break;
                     default:
