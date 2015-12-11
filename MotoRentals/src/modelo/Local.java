@@ -1,6 +1,8 @@
 package modelo;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
 
 /**
  * Clase local.
@@ -10,6 +12,7 @@ import java.util.ArrayList;
 public class Local {
     private int ID;
     private int capacidad;
+    private Gerente gestor;
     private int motosDisponibles;
     private ArrayList<Moto> motos;
     private Direccion direccion;
@@ -19,10 +22,10 @@ public class Local {
 
     }
     
-    public Local(int ID, int capacidad, int motosDisponibles, ArrayList<Moto> motos, Direccion direccion, ArrayList<Reserva> reservas) {
+    public Local(int ID, int capacidad, Gerente gestor, ArrayList<Moto> motos, Direccion direccion, ArrayList<Reserva> reservas) {
         this.ID = ID;
         this.capacidad = capacidad;
-        this.motosDisponibles = motosDisponibles;
+        this.gestor = gestor;
         this.motos = motos;
         this.direccion = direccion;
         this.reservas = reservas;
@@ -112,5 +115,71 @@ public class Local {
         this.reservas = reservas;
     }
 
+    /**
+     * @return the gestor
+     */
+    public Gerente getGestor() {
+        return gestor;
+    }
 
+    /**
+     * @param gestor the gestor to set
+     */
+    public void setGestor(Gerente gestor) {
+        this.gestor = gestor;
+    }
+
+    public boolean checkLocal(int id){
+        return this.ID == id;
+    }
+    
+    public boolean checkLocalOrigen(int idLocalOrigen){
+        return (this.ID == idLocalOrigen && this.motos.size() >= 1);
+    }
+    
+    public boolean checkLocalDestino(int idLocalDestino){
+        return (this.ID == idLocalDestino && this.motos.size() < this.capacidad);
+    }
+    
+    public Local mostrarLocal(){
+        return this;
+    }
+    
+    public ArrayList<Moto> mostrarMotos(){
+        return this.motos;
+    }
+    
+    //se tiene que modificar
+    public ArrayList<Moto> mostrarMotosDisponibles(Date fechaRecogida, Date fechaDevolucion){
+        ArrayList<Moto> motos = null;
+        Iterator<Reserva> iterador = this.reservas.iterator();
+        while(iterador.hasNext()){
+            Reserva r = iterador.next();
+        }
+        return motos;
+    }
+    
+    public Moto moverMoto(String idMoto){
+        Iterator<Moto> iterador = this.motos.iterator();
+        while(iterador.hasNext()){
+            Moto m = iterador.next();
+            if(m.getId() == idMoto){
+                this.eliminarMoto(m);
+                return m;
+            }
+        }
+        return null;
+    }
+    
+    public void añadirMoto(Moto moto){
+        this.motos.add(moto);
+    }
+    
+    public void eliminarMoto(Moto moto){
+        this.motos.remove(moto);
+    }
+    
+    public void solicitarMotoLocal(Cliente cliente, int idLocalOrigen, int idLocalDestino, Moto moto, Date fechaRecogida, Date fechaDevolucion){
+        
+    }
 }

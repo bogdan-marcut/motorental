@@ -1,25 +1,31 @@
 package modelo;
 
+import java.util.Date;
+
 /**
  * Clase moto.
  *
  * @author Bogdan Marcut, Ivan Toro, Marc Valdivia
  */
 public class Moto {
+    private String id;
     private String matricula;
-    private char estado;
+    private String marca;
     private String modelo;
     private String color;
+    private char estado;
 
     public Moto() {
 
     }
     
-    public Moto(String matricula, char estado, String modelo, String color) {
+    public Moto(String id, String matricula, String marca, String modelo, String color, char estado) {
+        this.id = id;
         this.matricula = matricula;
-        this.estado = estado;
+        this.marca = marca;
         this.modelo = modelo;
         this.color = color;
+        this.estado = estado;
     }
 
     /**
@@ -78,5 +84,40 @@ public class Moto {
         this.color = color;
     }
     
+    /**
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the marca
+     */
+    public String getMarca() {
+        return marca;
+    }
+
+    /**
+     * @param marca the marca to set
+     */
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
     
+    public boolean checkMoto(String idMoto) {
+        return idMoto.equals(this.getId());
+    }
+    
+    public Moto mostrarMoto() {
+        return this;
+    }
+
 }
