@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import modelo.Administrador;
 import modelo.Local;
+import modelo.Reserva;
 import modelo.Usuario;
 
 /**
@@ -15,10 +16,12 @@ public class MotoRental {
     
     private ArrayList<Usuario> listaUsuarios;
     private ArrayList<Local> listaLocales;
+    private ArrayList<Reserva> listaReservas;
     
     public MotoRental(){
         this.listaUsuarios = new ArrayList<Usuario>();
         this.listaLocales = new ArrayList<Local>();
+        this.listaReservas = new ArrayList<Reserva>();
         this.listaUsuarios.add(new Administrador("a1", "Administrador", "admin", "admin"));
     }
     
@@ -46,5 +49,6 @@ public class MotoRental {
         dataManager.obtenirDades("data/MotoRent.xml");
         this.listaLocales = dataManager.getListaLocales();
         this.listaUsuarios = dataManager.getListaUsuarios();
+        this.listaReservas = dataManager.getListaReservas();
     }
 }
