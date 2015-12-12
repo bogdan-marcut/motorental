@@ -1,13 +1,12 @@
 package modelo;
 
-import java.util.Date;
-
 /**
  * Clase moto.
  *
  * @author Bogdan Marcut, Ivan Toro, Marc Valdivia
  */
 public class Moto {
+    
     private String id;
     private String matricula;
     private String marca;

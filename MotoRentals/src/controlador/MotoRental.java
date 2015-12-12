@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controlador;
 
 import java.util.ArrayList;
@@ -12,10 +7,12 @@ import modelo.Local;
 import modelo.Usuario;
 
 /**
+ * Clase controladora.
  *
- * @author mat.aules
+ * @author Bogdan Marcut, Ivan Toro, Marc Valdivia
  */
 public class MotoRental {
+    
     private ArrayList<Usuario> listaUsuarios;
     private ArrayList<Local> listaLocales;
     

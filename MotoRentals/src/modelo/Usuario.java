@@ -9,6 +9,7 @@ import java.util.Date;
  */
 public abstract class Usuario {
     
+    protected String id;
     protected String nombre;
     protected String apellidos;
     protected String CC;
@@ -26,6 +27,7 @@ public abstract class Usuario {
     /**
      * Constructor de la clase con todos los parametros.
      * 
+     * @param id
      * @param nombre
      * @param apellidos
      * @param CC
@@ -33,13 +35,28 @@ public abstract class Usuario {
      * @param usuario
      * @param contrasenya 
      */
-    public Usuario(String nombre, String apellidos, String CC, Date fechaCreacion, String usuario, String contrasenya) {
+    public Usuario(String id, String nombre, String apellidos, String CC, Date fechaCreacion, String usuario, String contrasenya) {
+        this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.CC = CC;
         this.fechaCreacion = fechaCreacion;
         this.usuario = usuario;
         this.contrasenya = contrasenya;
+    }
+
+    /**
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(String id) {
+        this.id = id;
     }
 
     /**

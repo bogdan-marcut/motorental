@@ -30,6 +30,7 @@ public class Cliente extends Usuario {
     /**
      * Constructor con todos los parametros de la clase y de la herencia.
      * 
+     * @param id
      * @param nombre
      * @param apellidos
      * @param CC
@@ -38,8 +39,8 @@ public class Cliente extends Usuario {
      * @param contrasenya 
      * @param faltas
      */
-    public Cliente(String nombre, String apellidos, String CC, Date fechaCreacion, String usuario, String contrasenya, int faltas) {
-        super(nombre, apellidos, CC, fechaCreacion, usuario, contrasenya);
+    public Cliente(String id, String nombre, String apellidos, String CC, Date fechaCreacion, String usuario, String contrasenya, int faltas) {
+        super(id, nombre, apellidos, CC, fechaCreacion, usuario, contrasenya);
         this.faltas = faltas;
     }
 

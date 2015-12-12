@@ -10,6 +10,7 @@ import java.util.Iterator;
  * @author Bogdan Marcut, Ivan Toro, Marc Valdivia
  */
 public class Local {
+    
     private int ID;
     private int capacidad;
     private Gerente gestor;

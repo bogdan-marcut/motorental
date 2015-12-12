@@ -6,6 +6,7 @@ package modelo;
  * @author Bogdan Marcut, Ivan Toro, Marc Valdivia
  */
 public class Direccion {
+    
     private String calle;
     private String numero;
     private String CP;

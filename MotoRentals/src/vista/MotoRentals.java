@@ -36,26 +36,26 @@ public class MotoRentals {
         String privilegio = "anonimo";
         
         do {
-            this.escriu("");
-            this.escriu("*************** Menu ***************");
-            this.escriu("1. Registrarse");
-            this.escriu("2. Logarse");
-            this.escriu("3. Salir");
+            Consola.escriu("");
+            Consola.escriu("*************** Menu ***************");
+            Consola.escriu("1. Registrarse");
+            Consola.escriu("2. Logarse");
+            Consola.escriu("3. Salir");
             
             opcion = solicitarOpcion(); 
             switch(opcion) {
                 case 1:
-                    this.escriu("Introduzca el nombre de usuario: ");
+                    Consola.escriu("Introduzca el nombre de usuario: ");
                     
-                    this.escriu("Introduzca la contraseña: ");
+                    Consola.escriu("Introduzca la contraseña: ");
                     
                     break;
 
                 case 2:
                     do {
-                        this.escriu("Usuario: ");
+                        Consola.escriu("Usuario: ");
                         user = llegeixString();
-                        this.escriu("Contraseña: ");
+                        Consola.escriu("Contraseña: ");
                         pass = llegeixString();
                         privilegio = this.control.tipoUsuario(user, pass);
                     }
@@ -80,7 +80,7 @@ public class MotoRentals {
                 }
             }
             
-        this.escriu("************************************");
+        Consola.escriu("************************************");
         } while(opcion != 3);
 
     }
@@ -92,25 +92,25 @@ public class MotoRentals {
     public void menuCliente() {
         int opcion;
         do {
-            this.escriu("");
-            this.escriu("*************** Menu ***************");
-            this.escriu("1. Solicitar Reserva Moto");
-            this.escriu("2. Actualizar Datos");
-            this.escriu("3. Darse de Baja");
-            this.escriu("4. Log Out");
+            Consola.escriu("");
+            Consola.escriu("*************** Menu ***************");
+            Consola.escriu("1. Solicitar Reserva Moto");
+            Consola.escriu("2. Actualizar Datos");
+            Consola.escriu("3. Darse de Baja");
+            Consola.escriu("4. Log Out");
             
             opcion = solicitarOpcion();
             switch(opcion) {
                 case 1:
-                    this.escriu("La accion se ha realizado corectamente");
+                    Consola.escriu("La accion se ha realizado corectamente");
                     break;
 
                 case 2:
-                    this.escriu("La accion se ha realizado corectamente");
+                    Consola.escriu("La accion se ha realizado corectamente");
                     break;
 
                 case 3:
-                    this.escriu("La accion se ha realizado corectamente");
+                    Consola.escriu("La accion se ha realizado corectamente");
                     break;
             }
             escriu("************************************");
@@ -124,12 +124,12 @@ public class MotoRentals {
     public void menuGerente(){
         int opcion;
         do {
-            this.escriu("");
-            this.escriu("*************** Menu ***************");
-            this.escriu("1. Comprobar Reserva Moto");
-            this.escriu("2. Solicitar Motos");
-            this.escriu("3. Actualizar Estado Motos");
-            this.escriu("4. Log Out");
+            Consola.escriu("");
+            Consola.escriu("*************** Menu ***************");
+            Consola.escriu("1. Comprobar Reserva Moto");
+            Consola.escriu("2. Solicitar Motos");
+            Consola.escriu("3. Actualizar Estado Motos");
+            Consola.escriu("4. Log Out");
              
             opcion = solicitarOpcion(); 
             switch(opcion) {
@@ -138,11 +138,11 @@ public class MotoRentals {
                     break;
                     
                 case 2:
-                    this.escriu("La accion se ha realizado corectamente");
+                    Consola.escriu("La accion se ha realizado corectamente");
                     break;
                     
                 case 3:
-                    this.escriu("La accion se ha realizado corectamente");
+                    Consola.escriu("La accion se ha realizado corectamente");
                     break;
             }
             escriu("************************************");
@@ -156,30 +156,30 @@ public class MotoRentals {
     public void menuPropietario(){
         int opcion;
         do {
-            this.escriu("");
-            this.escriu("*************** Menu ***************");
-            this.escriu("1. Guardar Informacion del Cliente");
-            this.escriu("2. Rellenar Local");
-            this.escriu("3. Ver Informacion de Todos los Locales");
-            this.escriu("4. Ver Informe del Mes");
-            this.escriu("5. Log Out");
+            Consola.escriu("");
+            Consola.escriu("*************** Menu ***************");
+            Consola.escriu("1. Guardar Informacion del Cliente");
+            Consola.escriu("2. Rellenar Local");
+            Consola.escriu("3. Ver Informacion de Todos los Locales");
+            Consola.escriu("4. Ver Informe del Mes");
+            Consola.escriu("5. Log Out");
              
             opcion = solicitarOpcion(); 
             switch(opcion) {
                 case 1:
-                    this.escriu("La accion se ha realizado corectamente");
+                    Consola.escriu("La accion se ha realizado corectamente");
                     break;
                     
                 case 2:
-                    this.escriu("La accion se ha realizado corectamente");
+                    Consola.escriu("La accion se ha realizado corectamente");
                     break;
                     
                 case 3:
-                    this.escriu("La accion se ha realizado corectamente");
+                    Consola.escriu("La accion se ha realizado corectamente");
                     break;
                     
                 case 4:
-                    this.escriu("La accion se ha realizado corectamente");
+                    Consola.escriu("La accion se ha realizado corectamente");
                     break;
             }
             escriu("************************************");
@@ -193,12 +193,12 @@ public class MotoRentals {
     public void menuAdministrador(){
         int opcion;
         do {
-            this.escriu("");
-            this.escriu("*************** Menu ***************");
-            this.escriu("1. Gestionar Gerentes");
-            this.escriu("2. Gestionar Locales");
-            this.escriu("3. Cargar Datos");
-            this.escriu("4. Log Out");
+            Consola.escriu("");
+            Consola.escriu("*************** Menu ***************");
+            Consola.escriu("1. Gestionar Gerentes");
+            Consola.escriu("2. Gestionar Locales");
+            Consola.escriu("3. Cargar Datos");
+            Consola.escriu("4. Log Out");
             
             opcion = solicitarOpcion(); 
             switch(opcion) {
@@ -211,7 +211,7 @@ public class MotoRentals {
                     break;
                     
                 case 3:
-                    this.escriu("La accion se ha realizado corectamente");
+                    Consola.escriu("La accion se ha realizado corectamente");
                     break;
             }
             escriu("************************************");
@@ -225,19 +225,19 @@ public class MotoRentals {
     public void gestionarReservas(){
         int opcion;
         do{
-            this.escriu("*************** Menu ***************");
-            this.escriu("1. Proporcionar Moto");
-            this.escriu("2. Reservar Moto");
-            this.escriu("3. Volver");
+            Consola.escriu("*************** Menu ***************");
+            Consola.escriu("1. Proporcionar Moto");
+            Consola.escriu("2. Reservar Moto");
+            Consola.escriu("3. Volver");
             
             opcion = solicitarOpcion(); 
             switch(opcion) {
                 case 1:
-                    this.escriu("La accion se ha realizado corectamente");
+                    Consola.escriu("La accion se ha realizado corectamente");
                     break;
 
                 case 2:
-                    this.escriu("La accion se ha realizado corectamente");
+                    Consola.escriu("La accion se ha realizado corectamente");
                     break;
             }
         } while(opcion != 3);
@@ -249,19 +249,19 @@ public class MotoRentals {
     public void gestionarGerentes(){
         int opcion;
         do{
-            this.escriu("*************** Menu ***************");
-            this.escriu("1. Dar de Alta Gerente");
-            this.escriu("2. Dar de Baja Gerente");
-            this.escriu("3. Volver");
+            Consola.escriu("*************** Menu ***************");
+            Consola.escriu("1. Dar de Alta Gerente");
+            Consola.escriu("2. Dar de Baja Gerente");
+            Consola.escriu("3. Volver");
             
             opcion = solicitarOpcion(); 
             switch(opcion) {
                 case 1:
-                    this.escriu("La accion se ha realizado corectamente");
+                    Consola.escriu("La accion se ha realizado corectamente");
                     break;
 
                 case 2:
-                    this.escriu("La accion se ha realizado corectamente");
+                    Consola.escriu("La accion se ha realizado corectamente");
                     break;
             }
         } while(opcion != 3);
@@ -274,20 +274,20 @@ public class MotoRentals {
     public void gestionarLocales(){
         int opcion;
         do{
-            this.escriu("*************** Menu ***************");
-            this.escriu("1. Dar de Alta Local");
-            this.escriu("2. Dar de Baja Local");
-            this.escriu("3. Gestionar Motos");
-            this.escriu("4. Volver");
+            Consola.escriu("*************** Menu ***************");
+            Consola.escriu("1. Dar de Alta Local");
+            Consola.escriu("2. Dar de Baja Local");
+            Consola.escriu("3. Gestionar Motos");
+            Consola.escriu("4. Volver");
             
             opcion = solicitarOpcion(); 
             switch(opcion) {
                 case 1:
-                    this.escriu("La accion se ha realizado corectamente");
+                    Consola.escriu("La accion se ha realizado corectamente");
                     break;
 
                 case 2:
-                    this.escriu("La accion se ha realizado corectamente");
+                    Consola.escriu("La accion se ha realizado corectamente");
                     break;
                 
                 case 3:
@@ -303,18 +303,18 @@ public class MotoRentals {
     public void gestionarMotos(){
         int opcion;
         do{
-            this.escriu("*************** Menu ***************");
-            this.escriu("1. Dar de Alta Moto");
-            this.escriu("2. Dar de Baja Moto");
-            this.escriu("3. Volver");
+            Consola.escriu("*************** Menu ***************");
+            Consola.escriu("1. Dar de Alta Moto");
+            Consola.escriu("2. Dar de Baja Moto");
+            Consola.escriu("3. Volver");
             opcion = solicitarOpcion(); 
             switch(opcion) {
                 case 1:
-                    this.escriu("La accion se ha realizado corectamente");
+                    Consola.escriu("La accion se ha realizado corectamente");
                     break;
 
                 case 2:
-                    this.escriu("La accion se ha realizado corectamente");
+                    Consola.escriu("La accion se ha realizado corectamente");
                     break;
             }
         } while(opcion != 3);
@@ -326,12 +326,18 @@ public class MotoRentals {
      * @return int
      */
     public int solicitarOpcion() {
-        escriu("\n>> Escoge una opcion: ");
+        Consola.escriu("\n>> Escoge una opcion: ");
         int opcion;
-        opcion = llegeixInt();
+        opcion = Consola.llegeixInt();
         escriu("");
         return opcion;
     }
+    
+    /* -------------------------------------------------------------------
+     * Metodos que tambien se encuentran en la clase Consola. Los mantenemos
+     * por si mas adelante los queremos volver a utilizar.
+     * -------------------------------------------------------------------
+     */
     
     /**
      * Escribe por pantalla un string.
@@ -397,4 +403,5 @@ public class MotoRentals {
     public Date llegeixDataSistema(){
         return new Date();
     }
+    
 }
