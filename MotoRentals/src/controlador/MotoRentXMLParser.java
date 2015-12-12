@@ -44,11 +44,11 @@ public class MotoRentXMLParser {
 			doc.getDocumentElement().normalize();
 
 			// Obtenim dades
-			this.obtenirLocals(doc);
-			this.obtenirReserves(doc);
 			this.obtenirAdministradors(doc);
 			this.obtenirGestors(doc);
 			this.obtenirClients(doc);
+                        this.obtenirLocals(doc);
+			this.obtenirReserves(doc);
 		}
 		catch (SAXParseException err) {
 			System.out.println ("** Error parsejant" +", linia " + err.getLineNumber () + ", uri " + err.getSystemId ());
@@ -122,9 +122,10 @@ public class MotoRentXMLParser {
                                 color = moto.getAttributes().getNamedItem("color").getTextContent();
 				estat = moto.getAttributes().getNamedItem("estat").getTextContent();
 				
-				dataManager.crearMoto(id, matricula, marca, model, color, estat);
+				dataManager.getListaLocales().get(dataManager.getListaLocales().size()-1).getMotos().add(dataManager.crearMoto(id, matricula, marca, model, color, estat));
 			}			
 		}
+                
 	}
 	
 	/**

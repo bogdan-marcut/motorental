@@ -10,6 +10,7 @@ import java.util.Date;
 public class Cliente extends Usuario {
     
     private int faltas;
+    private Direccion direccion;
     
     /**
      * Constructor vacio de la clase.
@@ -39,9 +40,10 @@ public class Cliente extends Usuario {
      * @param contrasenya 
      * @param faltas
      */
-    public Cliente(String id, String nombre, String apellidos, String CC, Date fechaCreacion, String usuario, String contrasenya, int faltas) {
+    public Cliente(String id, String nombre, String apellidos, String CC, Date fechaCreacion, String usuario, String contrasenya, int faltas, Direccion direccion) {
         super(id, nombre, apellidos, CC, fechaCreacion, usuario, contrasenya);
         this.faltas = faltas;
+        this.direccion = direccion;
     }
 
     /**

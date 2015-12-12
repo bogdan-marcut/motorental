@@ -1,5 +1,6 @@
 package vista;
 
+import controlador.MotoRentDataManager;
 import controlador.MotoRental;
 import java.util.Date;
 import java.util.Scanner;
@@ -36,27 +37,27 @@ public class MotoRentals {
         String privilegio = "anonimo";
         
         do {
-            Consola.escriu("");
-            Consola.escriu("*************** Menu ***************");
-            Consola.escriu("1. Registrarse");
-            Consola.escriu("2. Logarse");
-            Consola.escriu("3. Salir");
+            escriu("");
+            escriu("*************** Menu ***************");
+            escriu("1. Registrarse");
+            escriu("2. Logarse");
+            escriu("3. Salir");
             
             opcion = solicitarOpcion(); 
             switch(opcion) {
                 case 1:
-                    Consola.escriu("Introduzca el nombre de usuario: ");
+                    escriu("Introduzca el nombre de usuario: ");
                     
-                    Consola.escriu("Introduzca la contraseña: ");
+                    escriu("Introduzca la contraseña: ");
                     
                     break;
 
                 case 2:
                     do {
-                        Consola.escriu("Usuario: ");
-                        user = Consola.llegeixString();
-                        Consola.escriu("Contraseña: ");
-                        pass = Consola.llegeixString();
+                        escriu("Usuario: ");
+                        user = llegeixString();
+                        escriu("Contraseña: ");
+                        pass = llegeixString();
                         privilegio = this.control.tipoUsuario(user, pass);
                     }
                     while(privilegio.equals("anonimo"));
@@ -80,7 +81,7 @@ public class MotoRentals {
                 }
             }
             
-        Consola.escriu("************************************");
+        escriu("************************************");
         } while(opcion != 3);
 
     }
@@ -92,28 +93,28 @@ public class MotoRentals {
     public void menuCliente() {
         int opcion;
         do {
-            Consola.escriu("");
-            Consola.escriu("*************** Menu ***************");
-            Consola.escriu("1. Solicitar Reserva Moto");
-            Consola.escriu("2. Actualizar Datos");
-            Consola.escriu("3. Darse de Baja");
-            Consola.escriu("4. Log Out");
+            escriu("");
+            escriu("*************** Menu ***************");
+            escriu("1. Solicitar Reserva Moto");
+            escriu("2. Actualizar Datos");
+            escriu("3. Darse de Baja");
+            escriu("4. Log Out");
             
             opcion = solicitarOpcion();
             switch(opcion) {
                 case 1:
-                    Consola.escriu("La accion se ha realizado corectamente");
+                    escriu("La accion se ha realizado corectamente");
                     break;
 
                 case 2:
-                    Consola.escriu("La accion se ha realizado corectamente");
+                    escriu("La accion se ha realizado corectamente");
                     break;
 
                 case 3:
-                    Consola.escriu("La accion se ha realizado corectamente");
+                    escriu("La accion se ha realizado corectamente");
                     break;
             }
-            Consola.escriu("************************************");
+            escriu("************************************");
         } while(opcion != 4 && opcion != 3);
     }
     
@@ -124,12 +125,12 @@ public class MotoRentals {
     public void menuGerente(){
         int opcion;
         do {
-            Consola.escriu("");
-            Consola.escriu("*************** Menu ***************");
-            Consola.escriu("1. Comprobar Reserva Moto");
-            Consola.escriu("2. Solicitar Motos");
-            Consola.escriu("3. Actualizar Estado Motos");
-            Consola.escriu("4. Log Out");
+            escriu("");
+            escriu("*************** Menu ***************");
+            escriu("1. Comprobar Reserva Moto");
+            escriu("2. Solicitar Motos");
+            escriu("3. Actualizar Estado Motos");
+            escriu("4. Log Out");
              
             opcion = solicitarOpcion(); 
             switch(opcion) {
@@ -138,14 +139,14 @@ public class MotoRentals {
                     break;
                     
                 case 2:
-                    Consola.escriu("La accion se ha realizado corectamente");
+                    escriu("La accion se ha realizado corectamente");
                     break;
                     
                 case 3:
-                    Consola.escriu("La accion se ha realizado corectamente");
+                    escriu("La accion se ha realizado corectamente");
                     break;
             }
-            Consola.escriu("************************************");
+            escriu("************************************");
         } while(opcion != 4);
     }
     
@@ -156,33 +157,33 @@ public class MotoRentals {
     public void menuPropietario(){
         int opcion;
         do {
-            Consola.escriu("");
-            Consola.escriu("*************** Menu ***************");
-            Consola.escriu("1. Guardar Informacion del Cliente");
-            Consola.escriu("2. Rellenar Local");
-            Consola.escriu("3. Ver Informacion de Todos los Locales");
-            Consola.escriu("4. Ver Informe del Mes");
-            Consola.escriu("5. Log Out");
+            escriu("");
+            escriu("*************** Menu ***************");
+            escriu("1. Guardar Informacion del Cliente");
+            escriu("2. Rellenar Local");
+            escriu("3. Ver Informacion de Todos los Locales");
+            escriu("4. Ver Informe del Mes");
+            escriu("5. Log Out");
              
             opcion = solicitarOpcion(); 
             switch(opcion) {
                 case 1:
-                    Consola.escriu("La accion se ha realizado corectamente");
+                    escriu("La accion se ha realizado corectamente");
                     break;
                     
                 case 2:
-                    Consola.escriu("La accion se ha realizado corectamente");
+                    escriu("La accion se ha realizado corectamente");
                     break;
                     
                 case 3:
-                    Consola.escriu("La accion se ha realizado corectamente");
+                    escriu("La accion se ha realizado corectamente");
                     break;
                     
                 case 4:
-                    Consola.escriu("La accion se ha realizado corectamente");
+                    escriu("La accion se ha realizado corectamente");
                     break;
             }
-            Consola.escriu("************************************");
+            escriu("************************************");
         } while(opcion != 5);
     }
     
@@ -193,12 +194,12 @@ public class MotoRentals {
     public void menuAdministrador(){
         int opcion;
         do {
-            Consola.escriu("");
-            Consola.escriu("*************** Menu ***************");
-            Consola.escriu("1. Gestionar Gerentes");
-            Consola.escriu("2. Gestionar Locales");
-            Consola.escriu("3. Cargar Datos");
-            Consola.escriu("4. Log Out");
+            escriu("");
+            escriu("*************** Menu ***************");
+            escriu("1. Gestionar Gerentes");
+            escriu("2. Gestionar Locales");
+            escriu("3. Cargar Datos");
+            escriu("4. Log Out");
             
             opcion = solicitarOpcion(); 
             switch(opcion) {
@@ -211,10 +212,11 @@ public class MotoRentals {
                     break;
                     
                 case 3:
-                    Consola.escriu("La accion se ha realizado corectamente");
+                    this.control.cargarDatos();
+                    escriu("La accion se ha realizado corectamente");
                     break;
             }
-            Consola.escriu("************************************");
+            escriu("************************************");
         } while(opcion != 4);
     }
     
@@ -225,19 +227,19 @@ public class MotoRentals {
     public void gestionarReservas(){
         int opcion;
         do{
-            Consola.escriu("*************** Menu ***************");
-            Consola.escriu("1. Proporcionar Moto");
-            Consola.escriu("2. Reservar Moto");
-            Consola.escriu("3. Volver");
+            escriu("*************** Menu ***************");
+            escriu("1. Proporcionar Moto");
+            escriu("2. Reservar Moto");
+            escriu("3. Volver");
             
             opcion = solicitarOpcion(); 
             switch(opcion) {
                 case 1:
-                    Consola.escriu("La accion se ha realizado corectamente");
+                    escriu("La accion se ha realizado corectamente");
                     break;
 
                 case 2:
-                    Consola.escriu("La accion se ha realizado corectamente");
+                    escriu("La accion se ha realizado corectamente");
                     break;
             }
         } while(opcion != 3);
@@ -249,19 +251,19 @@ public class MotoRentals {
     public void gestionarGerentes(){
         int opcion;
         do{
-            Consola.escriu("*************** Menu ***************");
-            Consola.escriu("1. Dar de Alta Gerente");
-            Consola.escriu("2. Dar de Baja Gerente");
-            Consola.escriu("3. Volver");
+            escriu("*************** Menu ***************");
+            escriu("1. Dar de Alta Gerente");
+            escriu("2. Dar de Baja Gerente");
+            escriu("3. Volver");
             
             opcion = solicitarOpcion(); 
             switch(opcion) {
                 case 1:
-                    Consola.escriu("La accion se ha realizado corectamente");
+                    escriu("La accion se ha realizado corectamente");
                     break;
 
                 case 2:
-                    Consola.escriu("La accion se ha realizado corectamente");
+                    escriu("La accion se ha realizado corectamente");
                     break;
             }
         } while(opcion != 3);
@@ -274,20 +276,20 @@ public class MotoRentals {
     public void gestionarLocales(){
         int opcion;
         do{
-            Consola.escriu("*************** Menu ***************");
-            Consola.escriu("1. Dar de Alta Local");
-            Consola.escriu("2. Dar de Baja Local");
-            Consola.escriu("3. Gestionar Motos");
-            Consola.escriu("4. Volver");
+            escriu("*************** Menu ***************");
+            escriu("1. Dar de Alta Local");
+            escriu("2. Dar de Baja Local");
+            escriu("3. Gestionar Motos");
+            escriu("4. Volver");
             
             opcion = solicitarOpcion(); 
             switch(opcion) {
                 case 1:
-                    Consola.escriu("La accion se ha realizado corectamente");
+                    escriu("La accion se ha realizado corectamente");
                     break;
 
                 case 2:
-                    Consola.escriu("La accion se ha realizado corectamente");
+                    escriu("La accion se ha realizado corectamente");
                     break;
                 
                 case 3:
@@ -303,18 +305,18 @@ public class MotoRentals {
     public void gestionarMotos(){
         int opcion;
         do{
-            Consola.escriu("*************** Menu ***************");
-            Consola.escriu("1. Dar de Alta Moto");
-            Consola.escriu("2. Dar de Baja Moto");
-            Consola.escriu("3. Volver");
+            escriu("*************** Menu ***************");
+            escriu("1. Dar de Alta Moto");
+            escriu("2. Dar de Baja Moto");
+            escriu("3. Volver");
             opcion = solicitarOpcion(); 
             switch(opcion) {
                 case 1:
-                    Consola.escriu("La accion se ha realizado corectamente");
+                    escriu("La accion se ha realizado corectamente");
                     break;
 
                 case 2:
-                    Consola.escriu("La accion se ha realizado corectamente");
+                    escriu("La accion se ha realizado corectamente");
                     break;
             }
         } while(opcion != 3);
@@ -326,15 +328,15 @@ public class MotoRentals {
      * @return int
      */
     public int solicitarOpcion() {
-        Consola.escriu("\n>> Escoge una opcion: ");
+        escriu("\n>> Escoge una opcion: ");
         int opcion;
-        opcion = Consola.llegeixInt();
-        Consola.escriu("");
+        opcion = llegeixInt();
+        escriu("");
         return opcion;
     }
     
     /* -------------------------------------------------------------------
-     * Metodos que tambien se encuentran en la clase Consola. Los mantenemos
+     * Metodos que tambien se encuentran en la clase  Los mantenemos
      * por si mas adelante los queremos volver a utilizar.
      * -------------------------------------------------------------------
      */

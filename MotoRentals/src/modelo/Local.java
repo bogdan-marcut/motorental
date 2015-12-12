@@ -11,7 +11,7 @@ import java.util.Iterator;
  */
 public class Local {
     
-    private int ID;
+    private String ID;
     private int capacidad;
     private Gerente gestor;
     private int motosDisponibles;
@@ -23,7 +23,7 @@ public class Local {
 
     }
     
-    public Local(int ID, int capacidad, Gerente gestor, ArrayList<Moto> motos, Direccion direccion, ArrayList<Reserva> reservas) {
+    public Local(String ID, int capacidad, Gerente gestor, ArrayList<Moto> motos, Direccion direccion, ArrayList<Reserva> reservas) {
         this.ID = ID;
         this.capacidad = capacidad;
         this.gestor = gestor;
@@ -35,14 +35,14 @@ public class Local {
     /**
      * @return the ID
      */
-    public int getID() {
+    public String getID() {
         return ID;
     }
 
     /**
      * @param ID the ID to set
      */
-    public void setID(int ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
 
@@ -130,16 +130,16 @@ public class Local {
         this.gestor = gestor;
     }
 
-    public boolean checkLocal(int id){
-        return this.ID == id;
+    public boolean checkLocal(String id){
+        return this.ID.equals(id);
     }
     
-    public boolean checkLocalOrigen(int idLocalOrigen){
-        return (this.ID == idLocalOrigen && this.motos.size() >= 1);
+    public boolean checkLocalOrigen(String idLocalOrigen){
+        return (this.ID.equals(idLocalOrigen) && this.motos.size() >= 1);
     }
     
-    public boolean checkLocalDestino(int idLocalDestino){
-        return (this.ID == idLocalDestino && this.motos.size() < this.capacidad);
+    public boolean checkLocalDestino(String idLocalDestino){
+        return (this.ID.equals(idLocalDestino) && this.motos.size() < this.capacidad);
     }
     
     public Local mostrarLocal(){

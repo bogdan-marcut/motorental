@@ -9,10 +9,14 @@ import java.util.Date;
  */
 public class Reserva {
     
-    private int id;
+    private String id;
     private Date fechaRecogida;
     private Date fechaDevolucion;
     private double penalizacion;
+    private Local localOrigen;
+    private Local localDestino;
+    private Moto moto;
+    private Pagament pagament;
     
     /**
      * Constructor de la clase vacio.
@@ -28,24 +32,28 @@ public class Reserva {
      * @param fechaDevolucion
      * @param penalizacion 
      */
-    public Reserva(int id, Date fechaRecogida, Date fechaDevolucion, double penalizacion) {
+    public Reserva(String id, Date fechaRecogida, Date fechaDevolucion, double penalizacion, Local localOrigen, Local localDestino, Moto moto, Pagament pagament) {
         this.id = id;
         this.fechaRecogida = fechaRecogida;
         this.fechaDevolucion = fechaDevolucion;
         this.penalizacion = penalizacion;
+        this.localOrigen = localOrigen;
+        this.localDestino = localDestino;
+        this.moto = moto;
+        this.pagament = pagament;
     }
 
     /**
      * @return the id
      */
-    public int getId() {
+    public String getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

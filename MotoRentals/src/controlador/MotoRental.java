@@ -40,4 +40,11 @@ public class MotoRental {
         }
         return "anonimo";
     }
+
+    public void cargarDatos() {
+        MotoRentDataManager dataManager = new MotoRentDataManager();
+        dataManager.obtenirDades("data/MotoRent.xml");
+        this.listaLocales = dataManager.getListaLocales();
+        this.listaUsuarios = dataManager.getListaUsuarios();
+    }
 }
