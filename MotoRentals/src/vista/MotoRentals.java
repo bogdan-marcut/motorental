@@ -54,9 +54,9 @@ public class MotoRentals {
                 case 2:
                     do {
                         Consola.escriu("Usuario: ");
-                        user = llegeixString();
+                        user = Consola.llegeixString();
                         Consola.escriu("Contraseña: ");
-                        pass = llegeixString();
+                        pass = Consola.llegeixString();
                         privilegio = this.control.tipoUsuario(user, pass);
                     }
                     while(privilegio.equals("anonimo"));
@@ -113,7 +113,7 @@ public class MotoRentals {
                     Consola.escriu("La accion se ha realizado corectamente");
                     break;
             }
-            escriu("************************************");
+            Consola.escriu("************************************");
         } while(opcion != 4 && opcion != 3);
     }
     
@@ -145,7 +145,7 @@ public class MotoRentals {
                     Consola.escriu("La accion se ha realizado corectamente");
                     break;
             }
-            escriu("************************************");
+            Consola.escriu("************************************");
         } while(opcion != 4);
     }
     
@@ -182,7 +182,7 @@ public class MotoRentals {
                     Consola.escriu("La accion se ha realizado corectamente");
                     break;
             }
-            escriu("************************************");
+            Consola.escriu("************************************");
         } while(opcion != 5);
     }
     
@@ -214,7 +214,7 @@ public class MotoRentals {
                     Consola.escriu("La accion se ha realizado corectamente");
                     break;
             }
-            escriu("************************************");
+            Consola.escriu("************************************");
         } while(opcion != 4);
     }
     
@@ -329,7 +329,7 @@ public class MotoRentals {
         Consola.escriu("\n>> Escoge una opcion: ");
         int opcion;
         opcion = Consola.llegeixInt();
-        escriu("");
+        Consola.escriu("");
         return opcion;
     }
     
