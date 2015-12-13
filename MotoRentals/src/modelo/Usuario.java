@@ -154,4 +154,12 @@ public abstract class Usuario {
     public boolean isGerente(){
         return this instanceof Gerente;
     }
+    
+    @Override
+    public String toString() {
+        String s = "Id: " + id + "\n";
+        s += "Nombre y Apellidos: " + nombre + " " + apellidos + "\n";
+        s += "CC: " + CC + "\n";
+        return s;
+    }
 }

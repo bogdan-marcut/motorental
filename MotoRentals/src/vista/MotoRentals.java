@@ -1,6 +1,7 @@
 package vista;
 
 import controlador.MotoRental;
+import java.text.ParseException;
 import java.util.Date;
 import java.util.Scanner;
 import modelo.Usuario;
@@ -144,6 +145,20 @@ public class MotoRentals {
             opcion = solicitarOpcion();
             switch(opcion) {
                 case 1:
+                    String format = "dd/MM/yyyy hh:mm";
+                    this.escriu("Introduce la fecha de recogida:");
+                    this.escriu("Formato de la fecha: " + format);
+                    String sRecogida = this.llegeixString();
+                    this.escriu("Introduce la fecha de devolucion:");
+                    this.escriu("Formato de la fecha: " + format);
+                    String sDevolucion = this.llegeixString();
+                    try {
+                        Date fechaRegogida = control.stringToDate(format, sRecogida);
+                        Date fechaDevolucion = control.stringToDate(format, sDevolucion);
+                        
+                    } catch(ParseException ex) {
+                        this.escriu("\t(!) Error en el formato de la fecha.");
+                    }
                     this.escriu("La accion se ha realizado corectamente");
                     break;
 

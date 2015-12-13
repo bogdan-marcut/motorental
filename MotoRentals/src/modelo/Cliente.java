@@ -73,5 +73,13 @@ public class Cliente extends Usuario {
     public void setDireccion(Direccion direccion) {
         this.direccion = direccion;
     }
+    
+    @Override
+    public String toString() {
+        String s = super.toString();
+        s += "Direccion: " + direccion + "\n";
+        s += "Faltas:" + faltas + "\n";
+        return s;
+    }
 
 }

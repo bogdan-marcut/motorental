@@ -1,5 +1,7 @@
 package controlador;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
 import modelo.Cliente;
@@ -178,5 +180,20 @@ public class MotoRental {
             }
         }
         return s;
+    }
+    
+    /**
+     * Devuelve un objeto Date dado un formato y un String.
+     * 
+     * @param format
+     * @param sDate
+     * @return Date
+     * @throws ParseException 
+     */
+    public Date stringToDate(String format, String sDate) throws ParseException {
+        SimpleDateFormat formatter = new SimpleDateFormat(format);
+
+        Date date = formatter.parse(sDate);
+        return date;
     }
 }
