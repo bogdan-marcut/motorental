@@ -98,6 +98,62 @@ public class Reserva {
     public void setPenalizacion(double penalizacion) {
         this.penalizacion = penalizacion;
     }
+
+    /**
+     * @return the localDestino
+     */
+    public Local getLocalDestino() {
+        return localDestino;
+    }
+
+    /**
+     * @param localDestino the localDestino to set
+     */
+    public void setLocalDestino(Local localDestino) {
+        this.localDestino = localDestino;
+    }
+
+    /**
+     * @return the localOrigen
+     */
+    public Local getLocalOrigen() {
+        return localOrigen;
+    }
+
+    /**
+     * @param localOrigen the localOrigen to set
+     */
+    public void setLocalOrigen(Local localOrigen) {
+        this.localOrigen = localOrigen;
+    }
+
+    /**
+     * @return the moto
+     */
+    public Moto getMoto() {
+        return moto;
+    }
+
+    /**
+     * @param moto the moto to set
+     */
+    public void setMoto(Moto moto) {
+        this.moto = moto;
+    }
+
+    /**
+     * @return the pagament
+     */
+    public Pagament getPagament() {
+        return pagament;
+    }
+
+    /**
+     * @param pagament the pagament to set
+     */
+    public void setPagament(Pagament pagament) {
+        this.pagament = pagament;
+    }
     
     
 }

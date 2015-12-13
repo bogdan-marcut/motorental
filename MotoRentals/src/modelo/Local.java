@@ -131,15 +131,15 @@ public class Local {
     }
 
     public boolean checkLocal(String id){
-        return this.ID.equals(id);
+        return this.getID().equals(id);
     }
     
     public boolean checkLocalOrigen(String idLocalOrigen){
-        return (this.ID.equals(idLocalOrigen) && this.motos.size() >= 1);
+        return (this.getID().equals(idLocalOrigen) && this.getMotos().size() >= 1);
     }
     
     public boolean checkLocalDestino(String idLocalDestino){
-        return (this.ID.equals(idLocalDestino) && this.motos.size() < this.capacidad);
+        return (this.getID().equals(idLocalDestino) && this.getMotos().size() < this.getCapacidad());
     }
     
     public Local mostrarLocal(){
@@ -147,13 +147,13 @@ public class Local {
     }
     
     public ArrayList<Moto> mostrarMotos(){
-        return this.motos;
+        return this.getMotos();
     }
     
     //se tiene que modificar
     public ArrayList<Moto> mostrarMotosDisponibles(Date fechaRecogida, Date fechaDevolucion){
         ArrayList<Moto> motos = null;
-        Iterator<Reserva> iterador = this.reservas.iterator();
+        Iterator<Reserva> iterador = this.getReservas().iterator();
         while(iterador.hasNext()){
             Reserva r = iterador.next();
         }
@@ -161,7 +161,7 @@ public class Local {
     }
     
     public Moto moverMoto(String idMoto){
-        Iterator<Moto> iterador = this.motos.iterator();
+        Iterator<Moto> iterador = this.getMotos().iterator();
         while(iterador.hasNext()){
             Moto m = iterador.next();
             if(m.getId().equals(idMoto)){
@@ -173,11 +173,11 @@ public class Local {
     }
     
     public void añadirMoto(Moto moto){
-        this.motos.add(moto);
+        this.getMotos().add(moto);
     }
     
     public void eliminarMoto(Moto moto){
-        this.motos.remove(moto);
+        this.getMotos().remove(moto);
     }
     
     public void solicitarMotoLocal(Cliente cliente, int idLocalOrigen, int idLocalDestino, Moto moto, Date fechaRecogida, Date fechaDevolucion){
