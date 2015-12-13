@@ -12,10 +12,21 @@ public class Direccion {
     private String CP;
     private String poblacion;
     
+    /**
+     * Constructor vacio de la clase.
+     */
     public Direccion() {
 
     }
     
+    /**
+     * Constructor con todos los atributos de la clase.
+     * 
+     * @param calle
+     * @param numero
+     * @param CP
+     * @param poblacion 
+     */
     public Direccion(String calle, String numero, String CP, String poblacion) {
         this.calle = calle;
         this.numero = numero;
