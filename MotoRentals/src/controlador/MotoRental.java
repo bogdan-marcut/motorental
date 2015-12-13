@@ -157,10 +157,10 @@ public class MotoRental {
      * @return boolean
      */
     public boolean comprobarReserva(String idCliente, Date fechaEntrega) {
-        boolean noTieneReserva = false;
+        boolean noTieneReserva = true;
         for (Reserva ri : datos.getListaReservas()) {
-            if (ri.getId().equals(idCliente) && fechaEntrega.before(ri.getFechaRecogida())) {
-                noTieneReserva = true;
+            if (ri.getId().equals(idCliente) && ri.getFechaRecogida().before(fechaEntrega)) {
+                noTieneReserva = false;
             }
         }
         return noTieneReserva;
