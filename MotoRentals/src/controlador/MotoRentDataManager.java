@@ -196,7 +196,6 @@ public class MotoRentDataManager {
 	 * @param renovacio true si el client renova automaticament. false si no
 	 * @param faltes nombre de faltes
 	 */
-
 	public void crearClient(String id, String nom, String dni, String adreca, String usuari, String password, String vip, String renovacio, String faltes) {
 
 		/* TODO: Creeu aqui el vostre client

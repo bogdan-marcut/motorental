@@ -64,7 +64,7 @@ public class Local {
      * @return the motosDisponibles
      */
     public int getMotosDisponibles() {
-        return motosDisponibles;
+        return getListaMotosDisponibles().size();
     }
 
     /**
@@ -148,6 +148,21 @@ public class Local {
     
     public ArrayList<Moto> mostrarMotos(){
         return this.getMotos();
+    }
+    
+    /**
+     * Devuelve las motos en estado 'C'.
+     * 
+     * @return ArrayList<Moto> 
+     */
+    public ArrayList<Moto> getListaMotosDisponibles() {
+        ArrayList<Moto> disponibles = new ArrayList();
+        for (Moto mi : motos) {
+            if (mi.getEstado() == 'C') {
+                disponibles.add(mi);
+            }
+        }
+        return disponibles;
     }
     
     //se tiene que modificar

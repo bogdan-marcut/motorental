@@ -5,6 +5,8 @@ import java.util.Iterator;
 import modelo.Cliente;
 import modelo.Datos;
 import modelo.Direccion;
+import modelo.Local;
+import modelo.Reserva;
 import modelo.Usuario;
 
 /**
@@ -142,5 +144,39 @@ public class MotoRental {
             }
         }  
         return us;
+    }
+    
+    /**
+     * Devuelve un booleano indicando si el usuario ya dispone de una reserva 
+     * posterior a la fecha introducida.
+     * 
+     * @param idCliente
+     * @param fechaEntrega
+     * @return boolean
+     */
+    public boolean comprobarReserva(String idCliente, Date fechaEntrega) {
+        boolean noTieneReserva = false;
+        for (Reserva ri : datos.getListaReservas()) {
+            if (ri.getId().equals(idCliente) && fechaEntrega.before(ri.getFechaRecogida())) {
+                noTieneReserva = true;
+            }
+        }
+        return noTieneReserva;
+    }
+    
+    
+    /**
+     * Devuelve un String con los locales que tienen motos disponibles.
+     * 
+     * @return String
+     */
+    public String mostrarLocalesConMotos() {
+        String s = "--- Locales con Motos Disponibles ---\n";
+        for (Local li : datos.getListaLocales()) {
+            if (li.getMotosDisponibles() > 0) {
+                s += li + "\n";
+            }
+        }
+        return s;
     }
 }
