@@ -203,7 +203,7 @@ public class Local {
      * @return String 
      */
     public String mostrarMotosDisponibles() {
-        String s = "--- Motos Disponibles ---\n";
+        String s = "";
         for (Moto mi : getMotosDisponibles()) {
             s += mi + "\n";
         }
@@ -286,6 +286,7 @@ public class Local {
         }
     }
     
+    @Override
     public String toString() {
         String s = "ID Local: " + this.ID + "\n";
         s += "Capacidad: " + this.capacidad + "\n";

@@ -214,4 +214,51 @@ public class MotoRental {
         Date date = formatter.parse(sDate);
         return date;
     }
+
+    /**
+     * Devuelve un booleano indicando si los locales seleccionados son aptos.
+     * 
+     * @param idOrigen
+     * @param idDestino
+     * @return boolean
+     */
+    public boolean comprobarOrigenDestino(String idOrigen, String idDestino) {
+        boolean esLocalOrigen = false;
+        boolean esLocalDestino = false;
+        for (Local li : datos.getListaLocales()) {
+            if (li.checkLocalOrigen(idOrigen)) esLocalOrigen = true;
+            if (li.checkLocalDestino(idDestino)) esLocalDestino = true;
+        }
+        return esLocalOrigen && esLocalDestino;
+    }
+
+    /**
+     * Devuelve un String con todas las motos disponibles en el local de origen
+     * enviado por parametro.
+     * 
+     * @param idOrigen
+     * @return 
+     */
+    public String mostrarMotosDisponibles(String idOrigen) {
+       String s = "--- Motos Disponibles ---\n";
+       for (Local li : datos.getListaLocales()) {
+           if (li.checkLocal(idOrigen)) {
+               s += li.mostrarMotosDisponibles();
+           }
+       }
+       return s;
+    }
+
+    /**
+     * Solicita una moto y en caso de que todo sea correcto realiza una reserva.
+     * 
+     * @param fechaRegogida
+     * @param fechaDevolucion
+     * @param idOrigen
+     * @param idDestino
+     * @param idMoto 
+     */
+    public void solicitarMoto(Date fechaRegogida, Date fechaDevolucion, String idOrigen, String idDestino, String idMoto) {
+        
+    }
 }

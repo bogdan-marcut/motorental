@@ -121,14 +121,27 @@ public class Moto {
         this.marca = marca;
     }
     
+    /**
+     * Devuleve un booleano que indica si el id enviado por parametro corresponde
+     * con el id de la moto actual.
+     * 
+     * @param idMoto
+     * @return boolean
+     */
     public boolean checkMoto(String idMoto) {
         return idMoto.equals(this.getId());
     }
     
-    public Moto mostrarMoto() {
-        return this;
+    /**
+     * Devuelve un String con la informacion de la moto.
+     * 
+     * @return String
+     */
+    public String mostrarMoto() {
+        return this.toString();
     }
 
+    @Override
     public String toString() {
         String s = "";
         s += "ID moto: " + this.id + "\n";

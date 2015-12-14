@@ -165,6 +165,16 @@ public class MotoRentals {
                             this.escriu(control.mostrarLocales());
                             this.escriu("Introduce el id del local de destino:");
                             String idDestino = this.llegeixString();
+                            if (control.comprobarOrigenDestino(idOrigen, idDestino)) {
+                                this.control.mostrarMotosDisponibles(idOrigen);
+                                this.escriu("Introduce el id de la moto:");
+                                String idMoto = this.llegeixString();
+                                this.control.solicitarMoto(fechaRegogida, fechaDevolucion, idOrigen, idDestino, idMoto);
+                            } else {
+                                this.escriu("\t(!) No existen los locales introducidos");
+                            }
+                        } else {
+                            this.escriu("\t(!) No puede realizar otra reserva");
                         }
                     } catch(ParseException ex) {
                         this.escriu("\t(!) Error en el formato de la fecha.");
