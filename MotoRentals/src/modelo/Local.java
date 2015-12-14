@@ -210,8 +210,6 @@ public class Local {
         return s;
     }
     
-    
-    
     /**
      * Muestra las motos en un String.
      * 
@@ -300,6 +298,8 @@ public class Local {
         s += "Direccion: " + this.direccion;
         s += "Motos Disponibles: " + this.numMotosDisponibles + "\n";
         return s;
+    }
+    
     /**
      * Devuelve la moto del cliente al local y comprueba tanto el estado como
      * si se ha devuelto en la fecha correcta.
