@@ -279,7 +279,15 @@ public class MotoRentals {
                     break;
 
                 case 2:
-                    this.escriu("La accion se ha realizado corectamente");
+                    for(Local li:control.getDatos().getListaLocales()){
+                        if(li.checkLocal(idLocal)){
+                            this.escriu("Estado moto (d-Disponible a-Averiada): ");
+                            char estadoMoto = this.llegeixString().charAt(0);
+                            this.escriu("Cost reparacio: ");
+                            double costReparacio = Double.parseDouble(this.llegeixString());
+                            this.control.devolverMoto(idReserva,li,estadoMoto,costReparacio,this.llegeixDataSistema());
+                        }
+                    }
                     break;
             }
         } while(opcion != 3);

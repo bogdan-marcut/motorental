@@ -265,6 +265,12 @@ public class Local {
         
     }
     
+    /**
+     * Entrega una moto al cliente mediante el id de la reserva pasada
+     * por parametro.
+     * 
+     * @param idReserva 
+     */
     public void entregarMoto(String idReserva){
         for(Reserva re:reservas){
             Moto moto_reserva = re.obtenerMotoReserva(idReserva);
@@ -272,6 +278,32 @@ public class Local {
                 moto_reserva.setEstado('o');
                 re.iniciarPago();
                 this.numMotosDisponibles--;
+            }
+        }
+    }
+    
+    /**
+     * Devuelve la moto del cliente al local y comprueba tanto el estado como
+     * si se ha devuelto en la fecha correcta.
+     * 
+     * @param idReserva
+     * @param estadoMoto
+     * @param costReparacion
+     * @param fecha 
+     */
+    public void devolverMoto(String idReserva, char estadoMoto, double costReparacion, Date fecha){
+        for(Reserva re:this.reservas){
+            if(re.getId().equals(idReserva)){
+                Moto moto_reserva = re.obtenerMotoReserva(idReserva);
+                if(moto_reserva != null){
+                    moto_reserva.setEstado(estadoMoto);
+                    if(moto_reserva.getEstado() == 'a'){
+                        re.añadirPenalizacion(costReparacion);
+                    }
+                    if(!re.mirarFechaDevolucion(fecha)){
+                        re.añadirRetraso(fecha);
+                    }
+                }
             }
         }
     }

@@ -17,6 +17,7 @@ public class Reserva {
     private Local localDestino;
     private Moto moto;
     private Pagament pagament;
+    private Cliente cliente;
     
     /**
      * Constructor de la clase vacio.
@@ -59,6 +60,20 @@ public class Reserva {
      */
     public void setId(String id) {
         this.id = id;
+    }
+    
+    /**
+     * @return the cliente
+     */
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    /**
+     * @param cliente the cliente to set
+     */
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     /**
@@ -159,18 +174,71 @@ public class Reserva {
         this.pagament = pagament;
     }
     
+    /**
+     * Devuelve la moto de la reserva.
+     * 
+     * @param idReserva
+     * @return Moto
+     */
     public Moto obtenerMotoReserva(String idReserva){
         if(this.id.equals(idReserva)) return this.moto;
         else return null;
     }
     
+    /**
+     * Llama el metodo iniciar pago pasandole las fechas de recogida
+     * y devolucion de la moto.
+     * 
+     */
     public void iniciarPago(){
         this.pagament.iniciarPago(this.fechaRecogida,this.fechaDevolucion);
+    }
+    
+    /**
+     * Añade el coste de la reparacion a la penalizacion de la reserva.
+     * 
+     * @param costeReparacion 
+     */
+    public void añadirPenalizacion(double costeReparacion){
+        Cliente cliente_reserva = this.cliente;
+        this.penalizacion += costeReparacion;
+        cliente_reserva.apuntarFalta();
+        this.pagament.añadirPenalizacion(costeReparacion);
+    }
+    
+    /**
+     * Devuelve si se devuelve en la fecha correcta.
+     * 
+     * @param fecha
+     * @return 
+     */
+    public boolean mirarFechaDevolucion(Date fecha){
+        
+        if(this.fechaDevolucion.getDay() > fecha.getDay()){
+           return true;
+        }
+        else if(this.fechaDevolucion.getDay() == fecha.getDay() 
+                && this.fechaDevolucion.getHours() >= fecha.getHours()){
+            return true;
+        }
+        return false;
+    }
+    
+    /**
+     * Llama al metodo de añadir coste del pago y actualiza la 
+     * fecha de devolucion.
+     * 
+     * @param fecha 
+     */
+    public void añadirRetraso(Date fecha){
+        this.pagament.añadirCosteRetraso(fecha,this.fechaDevolucion);
+        this.fechaDevolucion = fecha;
     }
     
     @Override
     public String toString() {
         String s = "Id reserva: " + id + "\n";
+        s += "Cliente: " + cliente + "\n";        
         s += "Fecha recogida: " + fechaRecogida + "\n";
         s += "Fecha devolucion: " + fechaDevolucion + "\n";
         s += "Penalizacion: " + penalizacion + "\n";

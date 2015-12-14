@@ -196,8 +196,29 @@ public class MotoRental {
         return s;
     }
     
+    /**
+     * Llama al metodo entregarMoto del local pasado por parametro
+     * y le pasa el id de la reserva.
+     * 
+     * @param idReserva
+     * @param local 
+     */
     public void entregarMoto(String idReserva, Local local){
         local.entregarMoto(idReserva);
+    }
+    
+    /**
+     * Llama al metodo devolverMoto del local pasado por parametro y
+     * le pasa el estado de la moto, el coste de reparacion y la fecha.
+     * 
+     * @param idReserva
+     * @param local
+     * @param estadoMoto
+     * @param costReparacio
+     * @param fecha 
+     */
+    public void devolverMoto(String idReserva, Local local, char estadoMoto, double costReparacio, Date fecha){
+        local.devolverMoto(idReserva, estadoMoto, costReparacio, fecha);
     }
     
     /**

@@ -74,6 +74,14 @@ public class Cliente extends Usuario {
         this.direccion = direccion;
     }
     
+    /**
+     * Apunta una falta al cliente.
+     * 
+     */
+    public void apuntarFalta(){
+        this.faltas++;
+    }
+    
     @Override
     public String toString() {
         String s = super.toString();

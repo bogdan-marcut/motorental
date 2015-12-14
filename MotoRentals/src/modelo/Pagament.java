@@ -1,6 +1,8 @@
 package modelo;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  * Clase pagament.
@@ -108,11 +110,44 @@ public class Pagament {
         this.total = total;
     }
     
+    /**
+     * Inicializa el atributo horas del pago.
+     * 
+     * @param fechaRecogida
+     * @param fechaDevolucion 
+     */
     public void iniciarPago(Date fechaRecogida, Date fechaDevolucion){
-        int dias = fechaDevolucion.getDay()- fechaRecogida.getDay();
-        int horas = fechaDevolucion.getHours()- fechaRecogida.getHours();
-        this.horas = dias * 24 + horas;
-        System.out.println(dias);
+    Calendar cal = new GregorianCalendar();
+    cal.setTime(fechaRecogida);
+    int diaR = cal.get(Calendar.DAY_OF_YEAR);
+    int horaR = cal.get(Calendar.HOUR_OF_DAY);
+    cal.setTime(fechaDevolucion);
+    int diaD = cal.get(Calendar.DAY_OF_YEAR); 
+    int horaD = cal.get(Calendar.HOUR_OF_DAY);
+    
+    int dias = diaD - diaR;
+    int horas = horaD - horaR;
+    
+    this.horas = dias * 24 + horas;    
+    }
+    
+    /**
+     * Añade el coste de la reparacion al pago.
+     * 
+     * @param costeReparacion 
+     */
+    public void añadirPenalizacion(double costeReparacion){
+        this.penalizacion += costeReparacion;
+    }
+    
+    /**
+     * Añade el coste por el retraso al pago.
+     * 
+     * @param fecha
+     * @param fechaDevolucion 
+     */
+    public void añadirCosteRetraso(Date fecha, Date fechaDevolucion){
+        
     }
     
     @Override
