@@ -23,6 +23,16 @@ public class Local {
 
     }
     
+    /**
+     * Constructor de la clase.
+     * 
+     * @param ID
+     * @param capacidad
+     * @param gestor
+     * @param motos
+     * @param direccion
+     * @param reservas 
+     */
     public Local(String ID, int capacidad, Gerente gestor, ArrayList<Moto> motos, Direccion direccion, ArrayList<Reserva> reservas) {
         this.ID = ID;
         this.capacidad = capacidad;

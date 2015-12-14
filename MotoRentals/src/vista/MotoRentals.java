@@ -62,7 +62,7 @@ public class MotoRentals {
                         usuario = this.llegeixString();
                         if(this.control.comprobarCliente(usuario)){
                             usuario = "";
-                            System.err.println("El usuario ya existe! Intentalo de nuevo: ");
+                            this.escriu("\n(!) El usuario ya existe! Intentalo de nuevo: ");
                         }
                     }
                     
@@ -374,12 +374,6 @@ public class MotoRentals {
         this.escriu("");
         return opcion;
     }
-    
-    /* -------------------------------------------------------------------
-     * Metodos que tambien se encuentran en la clase  Los mantenemos
-     * por si mas adelante los queremos volver a utilizar.
-     * -------------------------------------------------------------------
-     */
     
     /**
      * Escribe por pantalla un string.

@@ -18,6 +18,16 @@ public class Moto {
 
     }
     
+    /**
+     * Constructor de la clase.
+     * 
+     * @param id
+     * @param matricula
+     * @param marca
+     * @param modelo
+     * @param color
+     * @param estado 
+     */
     public Moto(String id, String matricula, String marca, String modelo, String color, char estado) {
         this.id = id;
         this.matricula = matricula;
