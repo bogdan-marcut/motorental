@@ -375,12 +375,6 @@ public class MotoRentals {
         return opcion;
     }
     
-    /* -------------------------------------------------------------------
-     * Metodos que tambien se encuentran en la clase  Los mantenemos
-     * por si mas adelante los queremos volver a utilizar.
-     * -------------------------------------------------------------------
-     */
-    
     /**
      * Escribe por pantalla un string.
      * 
