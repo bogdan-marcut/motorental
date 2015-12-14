@@ -182,6 +182,10 @@ public class MotoRental {
         return s;
     }
     
+    public void entregarMoto(String idReserva, Local local){
+        local.entregarMoto(idReserva);
+    }
+    
     /**
      * Devuelve un objeto Date dado un formato y un String.
      * 
