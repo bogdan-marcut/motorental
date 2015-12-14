@@ -168,6 +168,20 @@ public class MotoRental {
     
     
     /**
+     * Devuelve un String con todos los locales.
+     * 
+     * @return String
+     */
+    public String mostrarLocales() {
+        String s = "--- Locales ---\n";
+        for (Local li : datos.getListaLocales()) {
+            s += li + "\n";
+        }
+        return s;
+    }
+    
+    
+    /**
      * Devuelve un String con los locales que tienen motos disponibles.
      * 
      * @return String

@@ -14,6 +14,7 @@ import modelo.Usuario;
 public class MotoRentals {
     
     private MotoRental control;
+    Usuario user;
 
     /**
      * Constructor del menu.
@@ -99,8 +100,8 @@ public class MotoRentals {
                         this.escriu("Contraseña: ");
                         contrasenya = llegeixString();
                         try {
-                            us = this.control.getUsuario(usuario, contrasenya);  
-                            privilegio = this.control.tipoUsuario(us);
+                            user = this.control.getUsuario(usuario, contrasenya);  
+                            privilegio = this.control.tipoUsuario(user);
                         } catch(Exception ex){
                             System.err.println("Datos incorrectos!");
                         }
@@ -145,7 +146,7 @@ public class MotoRentals {
             opcion = solicitarOpcion();
             switch(opcion) {
                 case 1:
-                    String format = "dd/MM/yyyy hh:mm";
+                    String format = "yyyy-MM-dd HH:mm:ss";
                     this.escriu("Introduce la fecha de recogida:");
                     this.escriu("Formato de la fecha: " + format);
                     String sRecogida = this.llegeixString();
@@ -154,8 +155,16 @@ public class MotoRentals {
                     String sDevolucion = this.llegeixString();
                     try {
                         Date fechaRegogida = control.stringToDate(format, sRecogida);
+                        this.escriu(fechaRegogida);
                         Date fechaDevolucion = control.stringToDate(format, sDevolucion);
-                        
+                        if (control.comprobarReserva(user.getId(), fechaRegogida)) {
+                            this.escriu(control.mostrarLocalesConMotos());
+                            this.escriu("Introduce el id del local de origen:");
+                            String idOrigen = this.llegeixString();
+                            this.escriu(control.mostrarLocales());
+                            this.escriu("Introduce el id del local de destino:");
+                            String idDestino = this.llegeixString();
+                        }
                     } catch(ParseException ex) {
                         this.escriu("\t(!) Error en el formato de la fecha.");
                     }
@@ -413,7 +422,7 @@ public class MotoRentals {
      */
     public String llegeixString(){
         Scanner sc = new Scanner(System.in);
-        return sc.next();
+        return sc.nextLine();
     }
     
     /**

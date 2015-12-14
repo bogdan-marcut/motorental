@@ -158,7 +158,7 @@ public class Local {
     public ArrayList<Moto> getListaMotosDisponibles() {
         ArrayList<Moto> disponibles = new ArrayList();
         for (Moto mi : motos) {
-            if (mi.getEstado() == 'C') {
+            if (mi.getEstado() == 'd') {
                 disponibles.add(mi);
             }
         }

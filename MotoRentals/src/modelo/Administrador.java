@@ -11,6 +11,14 @@ public class Administrador extends Usuario{
         
     }
     
+    /**
+     * Constructor para el parsing XML.
+     * 
+     * @param id
+     * @param nombre
+     * @param usuario
+     * @param contrasenya 
+     */
     public Administrador(String id, String nombre, String usuario, String contrasenya){
         super.id = id;
         super.nombre = nombre;
