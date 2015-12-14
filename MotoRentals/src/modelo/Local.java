@@ -198,4 +198,15 @@ public class Local {
     public void solicitarMotoLocal(Cliente cliente, int idLocalOrigen, int idLocalDestino, Moto moto, Date fechaRecogida, Date fechaDevolucion){
         
     }
+    
+    public void entregarMoto(String idReserva){
+        for(Reserva re:reservas){
+            Moto moto_reserva = re.obtenerMotoReserva(idReserva);
+            if(moto_reserva != null){
+                moto_reserva.setEstado('o');
+                re.iniciarPago();
+                this.motosDisponibles--;
+            }
+        }
+    }
 }
