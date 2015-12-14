@@ -117,18 +117,18 @@ public class Pagament {
      * @param fechaDevolucion 
      */
     public void iniciarPago(Date fechaRecogida, Date fechaDevolucion){
-    Calendar cal = new GregorianCalendar();
-    cal.setTime(fechaRecogida);
-    int diaR = cal.get(Calendar.DAY_OF_YEAR);
-    int horaR = cal.get(Calendar.HOUR_OF_DAY);
-    cal.setTime(fechaDevolucion);
-    int diaD = cal.get(Calendar.DAY_OF_YEAR); 
-    int horaD = cal.get(Calendar.HOUR_OF_DAY);
-    
-    int dias = diaD - diaR;
-    int horas = horaD - horaR;
-    
-    this.horas = dias * 24 + horas;    
+        Calendar cal = new GregorianCalendar();
+        cal.setTime(fechaRecogida);
+        int diaR = cal.get(Calendar.DAY_OF_YEAR);
+        int horaR = cal.get(Calendar.HOUR_OF_DAY);
+        cal.setTime(fechaDevolucion);
+        int diaD = cal.get(Calendar.DAY_OF_YEAR); 
+        int horaD = cal.get(Calendar.HOUR_OF_DAY);
+
+        int dias = diaD - diaR;
+        int horas = horaD - horaR;
+
+        this.horas = dias * 24 + horas;    
     }
     
     /**
@@ -147,7 +147,18 @@ public class Pagament {
      * @param fechaDevolucion 
      */
     public void añadirCosteRetraso(Date fecha, Date fechaDevolucion){
-        
+        Calendar cal = new GregorianCalendar();
+        cal.setTime(fecha);
+        int dia = cal.get(Calendar.DAY_OF_YEAR);
+        int hora = cal.get(Calendar.HOUR_OF_DAY);
+        cal.setTime(fechaDevolucion);
+        int diaD = cal.get(Calendar.DAY_OF_YEAR); 
+        int horaD = cal.get(Calendar.HOUR_OF_DAY);
+
+        int dias = dia - diaD;
+        int horas = hora - horaD;
+
+        this.penalizacion += (dias * 24 + horas)*2;  
     }
     
     @Override

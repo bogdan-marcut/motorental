@@ -265,6 +265,7 @@ public class MotoRentals {
      */
     public void gestionarReservas(){
         int opcion;
+        String idReserva = "", idLocal = "";
         do{
             this.escriu("*************** Menu ***************");
             this.escriu("1. Entregar Moto");
@@ -274,11 +275,12 @@ public class MotoRentals {
             
             opcion = solicitarOpcion();
             
-            this.escriu("Id Reserva: ");
-            String idReserva = this.llegeixString();
-            this.escriu("Id Local: ");
-            String idLocal = this.llegeixString();
-            
+            if(opcion == 1 || opcion ==2 ){
+                this.escriu("Id Reserva: ");
+                idReserva = this.llegeixString();
+                this.escriu("Id Local: ");
+                idLocal = this.llegeixString();
+            }
             switch(opcion) {
                 case 1:
                     for(Local li:control.getDatos().getListaLocales()){
@@ -294,7 +296,7 @@ public class MotoRentals {
                             this.escriu("Estado moto (d-Disponible a-Averiada): ");
                             char estadoMoto = this.llegeixString().charAt(0);
                             this.escriu("Cost reparacio: ");
-                            double costReparacio = Double.parseDouble(this.llegeixString());
+                            double costReparacio = this.llegeixInt();
                             this.control.devolverMoto(idReserva,li,estadoMoto,costReparacio,this.llegeixDataSistema());
                         }
                     }
@@ -338,7 +340,8 @@ public class MotoRentals {
             this.escriu("1. Dar de Alta Local");
             this.escriu("2. Dar de Baja Local");
             this.escriu("3. Gestionar Motos");
-            this.escriu("4. Volver");
+            this.escriu("4. Ver todas las motos");
+            this.escriu("5. Volver");
             
             opcion = solicitarOpcion(); 
             switch(opcion) {
@@ -353,8 +356,12 @@ public class MotoRentals {
                 case 3:
                     this.gestionarMotos();
                     break;
+                
+                case 4:
+                    this.escriu(this.control.verMotos());
+                    break;
             }
-        } while(opcion != 4);
+        } while(opcion != 5);
     }
         
     /**

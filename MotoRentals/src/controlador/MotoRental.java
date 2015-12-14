@@ -282,4 +282,18 @@ public class MotoRental {
     public void solicitarMoto(Date fechaRegogida, Date fechaDevolucion, String idOrigen, String idDestino, String idMoto) {
         
     }
+    
+    /**
+     * Devuelve un string con todas las motos por cada local.
+     * 
+     * @return String
+     */
+    public String verMotos(){
+        String s = "--- Locales ---\n";
+        for(Local li:this.datos.getListaLocales()){
+            s += li + "\n";
+            s += li.mostrarMotos();
+        }
+        return s;
+    }
 }

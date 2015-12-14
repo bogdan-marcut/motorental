@@ -146,7 +146,7 @@ public class MotoRentDataManager {
                         Integer.parseInt(horaInicio[2]), Integer.parseInt(horaInicio[1]), Integer.parseInt(horaInicio[0]));
                 Date fechaDevolucion = new Date(Integer.parseInt(fechaFin[2]), Integer.parseInt(fechaFin[1]), Integer.parseInt(fechaFin[0]),
                         Integer.parseInt(horaFin[2]), Integer.parseInt(horaFin[1]), Integer.parseInt(horaFin[0]));
-                Reserva reserva = new Reserva(id, fechaRecogida, fechaDevolucion, 0, localOrigen, localDestino, m, new Pagament(0,0,0,0,Double.parseDouble(cost)));
+                Reserva reserva = new Reserva(id, fechaRecogida, fechaDevolucion, 0, localOrigen, localDestino, m, new Pagament(0,0,0,0,Double.parseDouble(cost)),null);
                 
                 localOrigen.getReservas().add(reserva);
                 this.getListaReservas().add(reserva);

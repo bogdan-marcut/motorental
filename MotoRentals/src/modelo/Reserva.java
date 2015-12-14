@@ -37,7 +37,7 @@ public class Reserva {
      * @param moto 
      * @param pagament 
      */
-    public Reserva(String id, Date fechaRecogida, Date fechaDevolucion, double penalizacion, Local localOrigen, Local localDestino, Moto moto, Pagament pagament) {
+    public Reserva(String id, Date fechaRecogida, Date fechaDevolucion, double penalizacion, Local localOrigen, Local localDestino, Moto moto, Pagament pagament, Cliente cliente) {
         this.id = id;
         this.fechaRecogida = fechaRecogida;
         this.fechaDevolucion = fechaDevolucion;
@@ -46,7 +46,8 @@ public class Reserva {
         this.localDestino = localDestino;
         this.moto = moto;
         this.pagament = pagament;
-    }
+        this.cliente = cliente;
+    }   
 
     /**
      * @return the id
