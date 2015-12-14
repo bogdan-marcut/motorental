@@ -119,4 +119,14 @@ public class Moto {
         return this;
     }
 
+    public String toString() {
+        String s = "";
+        s += "ID moto: " + this.id + "\n";
+        s += "Matricula: " + this.matricula + "\n";
+        s += "Marca: " + this.marca + "\n";
+        s += "Modelo: " + this.modelo + "\n";
+        s += "Color: " + this.color + "\n";
+        s += "Estado: " + this.estado + "\n";
+        return s;
+    }
 }

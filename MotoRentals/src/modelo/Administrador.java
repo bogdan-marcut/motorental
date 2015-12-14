@@ -26,4 +26,12 @@ public class Administrador extends Usuario{
         super.contrasenya = contrasenya;
     }
     
+    @Override
+    public String toString() {
+        String s = "";
+        s += "ID: " + this.id + "\n";
+        s += "Nombre: " + this.nombre + "\n";
+        s += "Apellidos: " + this.apellidos + "\n";
+        return s;
+    }
 }
