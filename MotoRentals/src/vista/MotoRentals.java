@@ -62,7 +62,7 @@ public class MotoRentals {
                         usuario = this.llegeixString();
                         if(this.control.comprobarCliente(usuario)){
                             usuario = "";
-                            System.err.println("El usuario ya existe! Intentalo de nuevo: ");
+                            this.escriu("\n(!) El usuario ya existe! Intentalo de nuevo: ");
                         }
                     }
                     
@@ -165,6 +165,16 @@ public class MotoRentals {
                             this.escriu(control.mostrarLocales());
                             this.escriu("Introduce el id del local de destino:");
                             String idDestino = this.llegeixString();
+                            if (control.comprobarOrigenDestino(idOrigen, idDestino)) {
+                                this.control.mostrarMotosDisponibles(idOrigen);
+                                this.escriu("Introduce el id de la moto:");
+                                String idMoto = this.llegeixString();
+                                this.control.solicitarMoto(fechaRegogida, fechaDevolucion, idOrigen, idDestino, idMoto);
+                            } else {
+                                this.escriu("\t(!) No existen los locales introducidos");
+                            }
+                        } else {
+                            this.escriu("\t(!) No puede realizar otra reserva");
                         }
                     } catch(ParseException ex) {
                         this.escriu("\t(!) Error en el formato de la fecha.");
@@ -382,12 +392,6 @@ public class MotoRentals {
         this.escriu("");
         return opcion;
     }
-    
-    /* -------------------------------------------------------------------
-     * Metodos que tambien se encuentran en la clase  Los mantenemos
-     * por si mas adelante los queremos volver a utilizar.
-     * -------------------------------------------------------------------
-     */
     
     /**
      * Escribe por pantalla un string.

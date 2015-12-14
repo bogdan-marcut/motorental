@@ -89,4 +89,9 @@ public class Direccion {
     public void setPoblacion(String poblacion) {
         this.poblacion = poblacion;
     }
+    
+    public String toString() {
+        String s = "Direccion: " + this.calle + " " + this.numero + ", " + this.CP + ", " + this.poblacion + "\n";
+        return s;
+    }
 }

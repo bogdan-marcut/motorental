@@ -23,6 +23,16 @@ public class Local {
 
     }
     
+    /**
+     * Constructor de la clase.
+     * 
+     * @param ID
+     * @param capacidad
+     * @param gestor
+     * @param motos
+     * @param direccion
+     * @param reservas 
+     */
     public Local(String ID, int capacidad, Gerente gestor, ArrayList<Moto> motos, Direccion direccion, ArrayList<Reserva> reservas) {
         this.ID = ID;
         this.capacidad = capacidad;
@@ -193,7 +203,7 @@ public class Local {
      * @return String 
      */
     public String mostrarMotosDisponibles() {
-        String s = "--- Motos Disponibles ---\n";
+        String s = "";
         for (Moto mi : getMotosDisponibles()) {
             s += mi + "\n";
         }
@@ -282,6 +292,14 @@ public class Local {
         }
     }
     
+    @Override
+    public String toString() {
+        String s = "ID Local: " + this.ID + "\n";
+        s += "Capacidad: " + this.capacidad + "\n";
+        s += "ID Gerente: " + this.gestor.getId() + "\n";
+        s += "Direccion: " + this.direccion;
+        s += "Motos Disponibles: " + this.numMotosDisponibles + "\n";
+        return s;
     /**
      * Devuelve la moto del cliente al local y comprueba tanto el estado como
      * si se ha devuelto en la fecha correcta.

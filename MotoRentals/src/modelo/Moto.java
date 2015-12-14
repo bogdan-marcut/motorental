@@ -18,6 +18,16 @@ public class Moto {
 
     }
     
+    /**
+     * Constructor de la clase.
+     * 
+     * @param id
+     * @param matricula
+     * @param marca
+     * @param modelo
+     * @param color
+     * @param estado 
+     */
     public Moto(String id, String matricula, String marca, String modelo, String color, char estado) {
         this.id = id;
         this.matricula = matricula;
@@ -111,12 +121,35 @@ public class Moto {
         this.marca = marca;
     }
     
+    /**
+     * Devuleve un booleano que indica si el id enviado por parametro corresponde
+     * con el id de la moto actual.
+     * 
+     * @param idMoto
+     * @return boolean
+     */
     public boolean checkMoto(String idMoto) {
         return idMoto.equals(this.getId());
     }
     
-    public Moto mostrarMoto() {
-        return this;
+    /**
+     * Devuelve un String con la informacion de la moto.
+     * 
+     * @return String
+     */
+    public String mostrarMoto() {
+        return this.toString();
     }
 
+    @Override
+    public String toString() {
+        String s = "";
+        s += "ID moto: " + this.id + "\n";
+        s += "Matricula: " + this.matricula + "\n";
+        s += "Marca: " + this.marca + "\n";
+        s += "Modelo: " + this.modelo + "\n";
+        s += "Color: " + this.color + "\n";
+        s += "Estado: " + this.estado + "\n";
+        return s;
+    }
 }
