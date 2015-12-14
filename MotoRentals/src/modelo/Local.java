@@ -14,7 +14,7 @@ public class Local {
     private String ID;
     private int capacidad;
     private Gerente gestor;
-    private int motosDisponibles;
+    private int numMotosDisponibles;
     private ArrayList<Moto> motos;
     private Direccion direccion;
     private ArrayList<Reserva> reservas;
@@ -63,15 +63,15 @@ public class Local {
     /**
      * @return the motosDisponibles
      */
-    public int getMotosDisponibles() {
-        return getListaMotosDisponibles().size();
+    public int getNumMotosDisponibles() {
+        return numMotosDisponibles;
     }
 
     /**
-     * @param motosDisponibles the motosDisponibles to set
+     * @param numMotosDisponibles the motosDisponibles to set
      */
-    public void setMotosDisponibles(int motosDisponibles) {
-        this.motosDisponibles = motosDisponibles;
+    public void setNumMotosDisponibles(int numMotosDisponibles) {
+        this.numMotosDisponibles = numMotosDisponibles;
     }
 
     /**
@@ -130,32 +130,54 @@ public class Local {
         this.gestor = gestor;
     }
 
+    /**
+     * Devuleve un booleano indicando si el id enviado por parametro coincide con
+     * el id del local actual.
+     * 
+     * @param id
+     * @return boolean
+     */
     public boolean checkLocal(String id){
         return this.getID().equals(id);
     }
     
+    /**
+     * Devuleve un booleano indicando si el id enviado por parametro cumple las
+     * condiciones para ser local de origen.
+     * 
+     * @param idLocalOrigen
+     * @return boolean
+     */
     public boolean checkLocalOrigen(String idLocalOrigen){
         return (this.getID().equals(idLocalOrigen) && this.getMotos().size() >= 1);
     }
     
+    /**
+     * Devuleve un booleano indicando si el id enviado por parametro cumple las
+     * condiciones para ser local de destino.
+     * 
+     * @param idLocalDestino
+     * @return boolean
+     */
     public boolean checkLocalDestino(String idLocalDestino){
         return (this.getID().equals(idLocalDestino) && this.getMotos().size() < this.getCapacidad());
     }
     
-    public Local mostrarLocal(){
-        return this;
-    }
-    
-    public ArrayList<Moto> mostrarMotos(){
-        return this.getMotos();
+    /**
+     * Muestra la informacion de un local.
+     * 
+     * @return String 
+     */
+    public String mostrarLocal(){
+        return this.toString();
     }
     
     /**
-     * Devuelve las motos en estado 'C'.
+     * Devuelve las motos en estado 'd'.
      * 
      * @return ArrayList<Moto> 
      */
-    public ArrayList<Moto> getListaMotosDisponibles() {
+    public ArrayList<Moto> getMotosDisponibles() {
         ArrayList<Moto> disponibles = new ArrayList();
         for (Moto mi : motos) {
             if (mi.getEstado() == 'd') {
@@ -165,16 +187,40 @@ public class Local {
         return disponibles;
     }
     
-    //se tiene que modificar
-    public ArrayList<Moto> mostrarMotosDisponibles(Date fechaRecogida, Date fechaDevolucion){
-        ArrayList<Moto> motos = null;
-        Iterator<Reserva> iterador = this.getReservas().iterator();
-        while(iterador.hasNext()){
-            Reserva r = iterador.next();
+    /**
+     * Muestra las motos disponibles en un String.
+     * 
+     * @return String 
+     */
+    public String mostrarMotosDisponibles() {
+        String s = "--- Motos Disponibles ---\n";
+        for (Moto mi : getMotosDisponibles()) {
+            s += mi + "\n";
         }
-        return motos;
+        return s;
     }
     
+    
+    
+    /**
+     * Muestra las motos en un String.
+     * 
+     * @return String 
+     */
+    public String mostrarMotos() {
+        String s = "--- Motos ---\n";
+        for (Moto mi : getMotos()) {
+            s += mi + "\n";
+        }
+        return s;
+    }
+    
+    /**
+     * Selecciona una moto para enviar a otro local y la elimina del actual.
+     * 
+     * @param idMoto
+     * @return 
+     */
     public Moto moverMoto(String idMoto){
         Iterator<Moto> iterador = this.getMotos().iterator();
         while(iterador.hasNext()){
@@ -187,14 +233,34 @@ public class Local {
         return null;
     }
     
+    /**
+     * Añade una nueva moto al local.
+     * 
+     * @param moto 
+     */
     public void añadirMoto(Moto moto){
         this.getMotos().add(moto);
     }
     
+    /**
+     * Elimina la moto enviada por parametro del local.
+     * 
+     * @param moto 
+     */
     public void eliminarMoto(Moto moto){
         this.getMotos().remove(moto);
     }
     
+    /**
+     * Solicita una moto al local.
+     * 
+     * @param cliente
+     * @param idLocalOrigen
+     * @param idLocalDestino
+     * @param moto
+     * @param fechaRecogida
+     * @param fechaDevolucion 
+     */
     public void solicitarMotoLocal(Cliente cliente, int idLocalOrigen, int idLocalDestino, Moto moto, Date fechaRecogida, Date fechaDevolucion){
         
     }

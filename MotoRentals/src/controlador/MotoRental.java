@@ -189,7 +189,7 @@ public class MotoRental {
     public String mostrarLocalesConMotos() {
         String s = "--- Locales con Motos Disponibles ---\n";
         for (Local li : datos.getListaLocales()) {
-            if (li.getMotosDisponibles() > 0) {
+            if (li.getNumMotosDisponibles() > 0) {
                 s += li + "\n";
             }
         }
