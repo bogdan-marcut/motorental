@@ -62,7 +62,7 @@ public class MotoRentals {
                         usuario = this.llegeixString();
                         if(this.control.comprobarCliente(usuario)){
                             usuario = "";
-                            System.err.println("El usuario ya existe! Intentalo de nuevo: ");
+                            this.escriu("\n(!) El usuario ya existe! Intentalo de nuevo: ");
                         }
                     }
                     
