@@ -143,17 +143,33 @@ public abstract class Usuario {
         this.contrasenya = contrasenya;
     }
     
+    /**
+     * Devuelve un booleano indicando si el usuario es administrador.
+     * 
+     * @return boolean
+     */
     public boolean isAdministrador(){
         return this instanceof Administrador;
     }
     
+    /**
+     * Devuelve un booleano indicando si el usuario es cliente.
+     * 
+     * @return boolean
+     */
     public boolean isCliente(){
         return this instanceof Cliente;
     }
     
+    /**
+     * Devuelve un booleano indicando si el usuario es gerente.
+     * 
+     * @return boolean
+     */
     public boolean isGerente(){
         return this instanceof Gerente;
     }
+    
     
     @Override
     public String toString() {
