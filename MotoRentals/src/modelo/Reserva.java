@@ -159,6 +159,15 @@ public class Reserva {
         this.pagament = pagament;
     }
     
+    public Moto obtenerMotoReserva(String idReserva){
+        if(this.id.equals(idReserva)) return this.moto;
+        else return null;
+    }
+    
+    public void iniciarPago(){
+        this.pagament.iniciarPago(this.fechaRecogida,this.fechaDevolucion);
+    }
+    
     @Override
     public String toString() {
         String s = "Id reserva: " + id + "\n";

@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.Date;
+
 /**
  * Clase pagament.
  *
@@ -104,6 +106,13 @@ public class Pagament {
      */
     public void setTotal(double total) {
         this.total = total;
+    }
+    
+    public void iniciarPago(Date fechaRecogida, Date fechaDevolucion){
+        int dias = fechaDevolucion.getDay()- fechaRecogida.getDay();
+        int horas = fechaDevolucion.getHours()- fechaRecogida.getHours();
+        this.horas = dias * 24 + horas;
+        System.out.println(dias);
     }
     
     @Override
