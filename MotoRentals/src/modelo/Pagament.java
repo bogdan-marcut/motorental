@@ -138,6 +138,7 @@ public class Pagament {
      */
     public void añadirPenalizacion(double costeReparacion){
         this.penalizacion += costeReparacion;
+        this.total += this.penalizacion;
     }
     
     /**
@@ -158,7 +159,8 @@ public class Pagament {
         int dias = dia - diaD;
         int horas = hora - horaD;
 
-        this.penalizacion += (dias * 24 + horas)*2;  
+        this.penalizacion += (dias * 24 + horas)*2;
+        this.total += this.penalizacion;
     }
     
     @Override

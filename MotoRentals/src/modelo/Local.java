@@ -321,6 +321,8 @@ public class Local {
                     if(!re.mirarFechaDevolucion(fecha)){
                         re.añadirRetraso(fecha);
                     }
+                    re.getLocalOrigen().getMotos().remove(moto_reserva);
+                    re.getLocalDestino().getMotos().add(moto_reserva);
                 }
             }
         }
