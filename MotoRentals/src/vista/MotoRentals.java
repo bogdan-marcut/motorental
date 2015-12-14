@@ -58,13 +58,14 @@ public class MotoRentals {
             switch(opcion) {
                 case 1:
                     this.escriu("Introduzca el nombre de usuario: ");
-                    while(usuario.equals("")){
+                    do{
                         usuario = this.llegeixString();
                         if(this.control.comprobarCliente(usuario)){
                             usuario = "";
                             this.escriu("\n(!) El usuario ya existe! Intentalo de nuevo: ");
                         }
                     }
+                    while(usuario.equals(""));
                     
                     this.escriu("Introduzca la contraseña: ");
                     contrasenya = this.llegeixString();
@@ -95,6 +96,7 @@ public class MotoRentals {
                     break;
 
                 case 2:
+                    privilegio = "anonimo";
                     this.escriu("Usuario: ");
                     usuario = llegeixString();
                     this.escriu("Contraseña: ");
