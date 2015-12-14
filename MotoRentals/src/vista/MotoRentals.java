@@ -95,19 +95,16 @@ public class MotoRentals {
                     break;
 
                 case 2:
-                    do {
-                        this.escriu("Usuario: ");
-                        usuario = llegeixString();
-                        this.escriu("Contraseña: ");
-                        contrasenya = llegeixString();
-                        try {
-                            user = this.control.getUsuario(usuario, contrasenya);  
-                            privilegio = this.control.tipoUsuario(user);
-                        } catch(Exception ex){
-                            System.err.println("Datos incorrectos!");
-                        }
+                    this.escriu("Usuario: ");
+                    usuario = llegeixString();
+                    this.escriu("Contraseña: ");
+                    contrasenya = llegeixString();
+                    try {
+                        user = this.control.getUsuario(usuario, contrasenya);  
+                        privilegio = this.control.tipoUsuario(user);
+                    } catch(Exception ex){
+                        System.err.println("Datos incorrectos!");
                     }
-                    while(privilegio.equals("anonimo"));
                     break;
             }
             if(opcion == 2){
