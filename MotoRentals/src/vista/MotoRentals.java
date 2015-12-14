@@ -4,6 +4,7 @@ import controlador.MotoRental;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.Scanner;
+import modelo.Local;
 import modelo.Usuario;
 
 /**
@@ -247,14 +248,25 @@ public class MotoRentals {
         int opcion;
         do{
             this.escriu("*************** Menu ***************");
-            this.escriu("1. Proporcionar Moto");
-            this.escriu("2. Reservar Moto");
+            this.escriu("1. Entregar Moto");
+            this.escriu("2. Devolver Moto");
             this.escriu("3. Volver");
             
-            opcion = solicitarOpcion(); 
+            
+            opcion = solicitarOpcion();
+            
+            this.escriu("Id Reserva: ");
+            String idReserva = this.llegeixString();
+            this.escriu("Id Local: ");
+            String idLocal = this.llegeixString();
+            
             switch(opcion) {
                 case 1:
-                    this.escriu("La accion se ha realizado corectamente");
+                    for(Local li:control.getDatos().getListaLocales()){
+                        if(li.checkLocal(idLocal)){
+                            this.control.entregarMoto(idReserva,li);
+                        }
+                    }
                     break;
 
                 case 2:
