@@ -271,7 +271,7 @@ public class Local {
             if(moto_reserva != null){
                 moto_reserva.setEstado('o');
                 re.iniciarPago();
-                this.motosDisponibles--;
+                this.numMotosDisponibles--;
             }
         }
     }
