@@ -287,20 +287,11 @@ public class Local {
     }
     
     public String toString() {
-        String s = "";
-        s += "ID Local: " + this.ID + "\n";
+        String s = "ID Local: " + this.ID + "\n";
         s += "Capacidad: " + this.capacidad + "\n";
         s += "ID Gerente: " + this.gestor.getId() + "\n";
-        s += this.direccion;
-        s += "Motos: \n";
-        for(Moto mi:this.motos){
-            s += "\t ID Moto: " + mi.getId() + "\n";
-        }
+        s += "Direccion: " + this.direccion;
         s += "Motos Disponibles: " + this.numMotosDisponibles + "\n";
-        s += "Reservas: \n";
-        for(Reserva re:this.reservas){
-            s += "\t ID Reserva: " + re.getId() + "\n";
-        }
         return s;
     }
 }

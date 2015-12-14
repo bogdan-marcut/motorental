@@ -178,7 +178,6 @@ public class Reserva {
         s += "Local destino: " + localDestino + "\n";
         s += "Moto: " + moto + "\n";
         s += "Pagament: " + pagament + "\n";
-        
         return s;
     }
 }

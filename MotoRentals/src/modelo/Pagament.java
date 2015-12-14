@@ -122,7 +122,6 @@ public class Pagament {
         s += "Descuento: " + descuento + "\n";
         s += "Penalizacion: " + penalizacion + "\n";
         s += "Total: " + total + "\n";
-        
         return s;
     }
 }

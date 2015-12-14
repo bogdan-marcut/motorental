@@ -91,8 +91,7 @@ public class Direccion {
     }
     
     public String toString() {
-        String s = "";
-        s += "Direccion: " + this.calle + " " + this.numero + ", " + this.CP + ", " + this.poblacion + "\n";
+        String s = "Direccion: " + this.calle + " " + this.numero + ", " + this.CP + ", " + this.poblacion + "\n";
         return s;
     }
 }
