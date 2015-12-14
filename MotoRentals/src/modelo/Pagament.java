@@ -20,7 +20,7 @@ public class Pagament {
     }
     
     /** 
-     * Constructor de la calse.
+     * Constructor de la clase.
      * 
      * @param tarifa_x_hora
      * @param horas
@@ -106,5 +106,14 @@ public class Pagament {
         this.total = total;
     }
     
-    
+    @Override
+    public String toString() {
+        String s = "Tarifa por hora: " + tarifa_x_hora + "\n";
+        s += "Horas: " + horas + "\n";
+        s += "Descuento: " + descuento + "\n";
+        s += "Penalizacion: " + penalizacion + "\n";
+        s += "Total: " + total + "\n";
+        
+        return s;
+    }
 }

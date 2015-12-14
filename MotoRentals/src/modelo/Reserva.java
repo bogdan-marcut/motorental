@@ -31,6 +31,10 @@ public class Reserva {
      * @param fechaRecogida
      * @param fechaDevolucion
      * @param penalizacion 
+     * @param localOrigen 
+     * @param localDestino 
+     * @param moto 
+     * @param pagament 
      */
     public Reserva(String id, Date fechaRecogida, Date fechaDevolucion, double penalizacion, Local localOrigen, Local localDestino, Moto moto, Pagament pagament) {
         this.id = id;
@@ -155,5 +159,17 @@ public class Reserva {
         this.pagament = pagament;
     }
     
-    
+    @Override
+    public String toString() {
+        String s = "Id reserva: " + id + "\n";
+        s += "Fecha recogida: " + fechaRecogida + "\n";
+        s += "Fecha devolucion: " + fechaDevolucion + "\n";
+        s += "Penalizacion: " + penalizacion + "\n";
+        s += "Local origen: " + localOrigen + "\n";
+        s += "Local destino: " + localDestino + "\n";
+        s += "Moto: " + moto + "\n";
+        s += "Pagament: " + pagament + "\n";
+        
+        return s;
+    }
 }
