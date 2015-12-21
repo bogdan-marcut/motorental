@@ -314,6 +314,7 @@ public class Local {
             if(re.getId().equals(idReserva)){
                 Moto moto_reserva = re.obtenerMotoReserva(idReserva);
                 if(moto_reserva != null){
+                    re.getLocalDestino().getMotos().remove(moto_reserva);
                     moto_reserva.setEstado(estadoMoto);
                     if(moto_reserva.getEstado() == 'a'){
                         re.añadirPenalizacion(costReparacion);
