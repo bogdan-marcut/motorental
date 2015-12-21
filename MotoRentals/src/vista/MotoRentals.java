@@ -169,7 +169,7 @@ public class MotoRentals {
                                 this.control.mostrarMotosDisponibles(idOrigen);
                                 this.escriu("Introduce el id de la moto:");
                                 String idMoto = this.llegeixString();
-                                this.control.solicitarMotoLocal((Cliente) user, fechaRegogida, fechaDevolucion, idOrigen, idDestino, idMoto);
+                                this.control.solicitarMoto((Cliente) user, fechaRegogida, fechaDevolucion, idOrigen, idDestino, idMoto);
                             } else {
                                 this.escriu("\t(!) No existen los locales introducidos");
                             }

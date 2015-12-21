@@ -262,15 +262,16 @@ public class Local {
     /**
      * Solicita una moto al local.
      * 
-     * @param cliente
-     * @param idLocalOrigen
-     * @param idLocalDestino
-     * @param moto
-     * @param fechaRecogida
-     * @param fechaDevolucion 
+     * @param idMoto
+     * @param reserva 
      */
-    public void solicitarMotoLocal(Cliente cliente, int idLocalOrigen, int idLocalDestino, Moto moto, Date fechaRecogida, Date fechaDevolucion){
-        
+    public void solicitarMotoLocal(String idMoto, Reserva reserva){
+        for (Moto mi : motos) {
+            if (mi.checkMoto(idMoto)) {
+                mi.setEstado('o');
+                reservas.add(reserva);
+            }
+        }
     }
     
     /**

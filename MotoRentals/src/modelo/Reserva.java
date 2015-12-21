@@ -47,7 +47,28 @@ public class Reserva {
         this.moto = moto;
         this.pagament = pagament;
         this.cliente = cliente;
-    }   
+    } 
+
+    /**
+     * Constructor de una nueva reserva realizada por un cliente.
+     * 
+     * @param fechaRecogida
+     * @param fechaDevolucion
+     * @param localOrigen
+     * @param localDestino
+     * @param moto
+     * @param cliente 
+     */
+    public Reserva(Date fechaRecogida, Date fechaDevolucion, Local localOrigen, Local localDestino, Moto moto, Cliente cliente) {
+        this.fechaRecogida = fechaRecogida;
+        this.fechaDevolucion = fechaDevolucion;
+        this.localOrigen = localOrigen;
+        this.localDestino = localDestino;
+        this.moto = moto;
+        this.cliente = cliente;
+    }
+    
+    
 
     /**
      * @return the id

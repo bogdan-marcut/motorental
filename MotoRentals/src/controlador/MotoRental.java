@@ -8,6 +8,7 @@ import modelo.Cliente;
 import modelo.Datos;
 import modelo.Direccion;
 import modelo.Local;
+import modelo.Moto;
 import modelo.Reserva;
 import modelo.Usuario;
 
@@ -280,8 +281,28 @@ public class MotoRental {
      * @param idDestino
      * @param idMoto 
      */
-    public void solicitarMotoLocal(Cliente cliente, Date fechaRegogida, Date fechaDevolucion, String idOrigen, String idDestino, String idMoto) {
-        
+    public void solicitarMoto(Cliente cliente, Date fechaRegogida, Date fechaDevolucion, String idOrigen, String idDestino, String idMoto) {
+        for (Local li : datos.getListaLocales()) {
+            if (li.checkLocal(idOrigen)) {
+                Local origen = obtenerLocal(idOrigen);
+                Local destino = obtenerLocal(idDestino);
+                //Reserva reserva = new Reserva(fechaRecogida, Date fechaDevolucion, Local localOrigen, Local localDestino, Moto moto, Cliente cliente);
+                //li.solicitarMotoLocal(idMoto, reserva);
+            }
+        }
+    }
+    
+    /**
+     * Devuelve el objeto Local correspondiente al id enviado por parametro.
+     * 
+     * @param idLocal
+     * @return Local
+     */
+    public Local obtenerLocal(String idLocal) {
+        for (Local li : datos.getListaLocales()) {
+            if (li.checkLocal(idLocal)) return li;
+        }
+        return null;
     }
     
     /**
