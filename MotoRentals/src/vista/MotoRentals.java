@@ -286,6 +286,9 @@ public class MotoRentals {
                         if(li.checkLocal(idLocal)){
                             this.control.entregarMoto(idReserva,li);
                         }
+                        else{
+                            this.escriu("El local no existe.");
+                        }
                     }
                     break;
 
@@ -297,6 +300,9 @@ public class MotoRentals {
                             this.escriu("Cost reparacio: ");
                             double costReparacio = this.llegeixInt();
                             this.control.devolverMoto(idReserva,li,estadoMoto,costReparacio,this.llegeixDataSistema());
+                        }
+                        else{
+                            this.escriu("El local no existe.");
                         }
                     }
                     break;
