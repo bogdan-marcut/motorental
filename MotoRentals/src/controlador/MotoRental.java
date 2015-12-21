@@ -273,13 +273,14 @@ public class MotoRental {
     /**
      * Solicita una moto y en caso de que todo sea correcto realiza una reserva.
      * 
+     * @param cliente
      * @param fechaRegogida
      * @param fechaDevolucion
      * @param idOrigen
      * @param idDestino
      * @param idMoto 
      */
-    public void solicitarMoto(Date fechaRegogida, Date fechaDevolucion, String idOrigen, String idDestino, String idMoto) {
+    public void solicitarMotoLocal(Cliente cliente, Date fechaRegogida, Date fechaDevolucion, String idOrigen, String idDestino, String idMoto) {
         
     }
     
