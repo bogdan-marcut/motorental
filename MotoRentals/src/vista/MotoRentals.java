@@ -4,6 +4,8 @@ import controlador.MotoRental;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import modelo.Cliente;
 import modelo.Local;
 import modelo.Usuario;
@@ -169,7 +171,12 @@ public class MotoRentals {
                                 this.control.mostrarMotosDisponibles(idOrigen);
                                 this.escriu("Introduce el id de la moto:");
                                 String idMoto = this.llegeixString();
-                                this.control.solicitarMoto((Cliente) user, fechaRegogida, fechaDevolucion, idOrigen, idDestino, idMoto);
+                                try {
+                                    String idReserva = this.control.solicitarMoto((Cliente) user, fechaRegogida, fechaDevolucion, idOrigen, idDestino, idMoto);
+                                    this.escriu("-> El id de su reserva es " + idReserva);
+                                } catch (Exception ex) {
+                                    this.escriu(ex.getMessage());
+                                }
                             } else {
                                 this.escriu("\t(!) No existen los locales introducidos");
                             }

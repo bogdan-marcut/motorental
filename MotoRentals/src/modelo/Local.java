@@ -19,6 +19,9 @@ public class Local {
     private Direccion direccion;
     private ArrayList<Reserva> reservas;
 
+    /**
+     * Constructor vacío.
+     */
     public Local() {
 
     }
@@ -260,18 +263,25 @@ public class Local {
     }
     
     /**
-     * Solicita una moto al local.
+     * Solicita una moto al local origen.
      * 
+     * @param fechaRegogida
+     * @param fechaDevolucion
+     * @param destino
      * @param idMoto
-     * @param reserva 
+     * @param cliente 
+     * @return  Reserva
      */
-    public void solicitarMotoLocal(String idMoto, Reserva reserva){
+    public Reserva solicitarMotoLocal(Date fechaRegogida, Date fechaDevolucion, Local destino, String idMoto, Cliente cliente){
+        Reserva reserva = null;
         for (Moto mi : motos) {
             if (mi.checkMoto(idMoto)) {
                 mi.setEstado('o');
+                reserva = new Reserva(fechaRegogida, fechaDevolucion, this, destino, mi, cliente);
                 reservas.add(reserva);
             }
         }
+        return reserva;
     }
     
     /**
@@ -282,9 +292,9 @@ public class Local {
      */
     public void entregarMoto(String idReserva){
         for(Reserva re:reservas){
-            Moto moto_reserva = re.obtenerMotoReserva(idReserva);
-            if(moto_reserva != null){
-                moto_reserva.setEstado('o');
+            Moto motoReserva = re.obtenerMotoReserva(idReserva);
+            if(motoReserva != null){
+                motoReserva.setEstado('o');
                 re.iniciarPago();
                 this.numMotosDisponibles--;
             }
@@ -313,18 +323,18 @@ public class Local {
     public void devolverMoto(String idReserva, char estadoMoto, double costReparacion, Date fecha){
         for(Reserva re:this.reservas){
             if(re.getId().equals(idReserva)){
-                Moto moto_reserva = re.obtenerMotoReserva(idReserva);
-                if(moto_reserva != null){
-                    re.getLocalDestino().getMotos().remove(moto_reserva);
-                    moto_reserva.setEstado(estadoMoto);
-                    if(moto_reserva.getEstado() == 'a'){
+                Moto motoReserva = re.obtenerMotoReserva(idReserva);
+                if(motoReserva != null){
+                    re.getLocalDestino().getMotos().remove(motoReserva);
+                    motoReserva.setEstado(estadoMoto);
+                    if(motoReserva.getEstado() == 'a'){
                         re.añadirPenalizacion(costReparacion);
                     }
                     if(!re.mirarFechaDevolucion(fecha)){
                         re.añadirRetraso(fecha);
                     }
-                    re.getLocalOrigen().getMotos().remove(moto_reserva);
-                    re.getLocalDestino().getMotos().add(moto_reserva);
+                    re.getLocalOrigen().getMotos().remove(motoReserva);
+                    re.getLocalDestino().getMotos().add(motoReserva);
                 }
             }
         }

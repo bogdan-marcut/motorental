@@ -1,5 +1,6 @@
 package modelo;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -60,6 +61,9 @@ public class Reserva {
      * @param cliente 
      */
     public Reserva(Date fechaRecogida, Date fechaDevolucion, Local localOrigen, Local localDestino, Moto moto, Cliente cliente) {
+        SimpleDateFormat formatter = new SimpleDateFormat("ddMMYY");
+        String sDate = formatter.format(new Date());
+        this.id = cliente.getId() + "_" + sDate;
         this.fechaRecogida = fechaRecogida;
         this.fechaDevolucion = fechaDevolucion;
         this.localOrigen = localOrigen;
@@ -67,8 +71,6 @@ public class Reserva {
         this.moto = moto;
         this.cliente = cliente;
     }
-    
-    
 
     /**
      * @return the id

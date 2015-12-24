@@ -280,16 +280,28 @@ public class MotoRental {
      * @param idOrigen
      * @param idDestino
      * @param idMoto 
+     * @return  String
+     * @throws java.lang.Exception 
      */
-    public void solicitarMoto(Cliente cliente, Date fechaRegogida, Date fechaDevolucion, String idOrigen, String idDestino, String idMoto) {
+    public String solicitarMoto(Cliente cliente, Date fechaRegogida, Date fechaDevolucion, String idOrigen, String idDestino, String idMoto) throws Exception {
         for (Local li : datos.getListaLocales()) {
             if (li.checkLocal(idOrigen)) {
                 Local origen = obtenerLocal(idOrigen);
                 Local destino = obtenerLocal(idDestino);
-                //Reserva reserva = new Reserva(fechaRecogida, Date fechaDevolucion, Local localOrigen, Local localDestino, Moto moto, Cliente cliente);
-                //li.solicitarMotoLocal(idMoto, reserva);
+                if (origen != null && destino != null) {
+                    Reserva reserva = li.solicitarMotoLocal(fechaRegogida, fechaDevolucion, destino, idMoto, cliente);
+                    if (reserva != null) {
+                        datos.getListaReservas().add(reserva);
+                        return reserva.getId();
+                    } else {
+                        throw new Exception("La reserva no se ha podido crear");
+                    }
+                } else {
+                    throw new Exception("Los locales introducidos no son validos");
+                }
             }
         }
+        return null;
     }
     
     /**
