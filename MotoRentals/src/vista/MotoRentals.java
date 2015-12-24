@@ -265,6 +265,7 @@ public class MotoRentals {
      */
     public void gestionarReservas(){
         int opcion;
+        boolean encontrado = false;
         String idReserva = "", idLocal = "";
         do{
             this.escriu("*************** Menu ***************");
@@ -286,13 +287,12 @@ public class MotoRentals {
                     for(Local li:control.getDatos().getListaLocales()){
                         if(li.checkLocal(idLocal)){
                             this.control.entregarMoto(idReserva,li);
-                        }
-                        else{
-                            this.escriu("El local no existe.");
+                            encontrado = true;
                         }
                     }
+                    if(!encontrado) this.escriu("El local no existe.");
+                    else this.escriu("Moto entregada correctamente.");
                     break;
-
                 case 2:
                     for(Local li:control.getDatos().getListaLocales()){
                         if(li.checkLocal(idLocal)){
@@ -301,11 +301,11 @@ public class MotoRentals {
                             this.escriu("Cost reparacio: ");
                             double costReparacio = this.llegeixInt();
                             this.control.devolverMoto(idReserva,li,estadoMoto,costReparacio,this.llegeixDataSistema());
-                        }
-                        else{
-                            this.escriu("El local no existe.");
+                            encontrado = true;
                         }
                     }
+                    if(!encontrado) this.escriu("El local no existe.");
+                    else this.escriu("Moto devuelta correctamente.");
                     break;
             }
         } while(opcion != 3);
