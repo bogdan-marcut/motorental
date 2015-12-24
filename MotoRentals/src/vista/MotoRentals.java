@@ -149,7 +149,7 @@ public class MotoRentals {
             opcion = solicitarOpcion();
             switch(opcion) {
                 case 1:
-                    String format = "yyyy-MM-dd HH:mm:ss";
+                    String format = "dd-MM-yyyy HH:mm";
                     this.escriu("Introduce la fecha de recogida:");
                     this.escriu("Formato de la fecha: " + format);
                     String sRecogida = this.llegeixString();
@@ -168,7 +168,7 @@ public class MotoRentals {
                             this.escriu("Introduce el id del local de destino:");
                             String idDestino = this.llegeixString();
                             if (control.comprobarOrigenDestino(idOrigen, idDestino)) {
-                                this.control.mostrarMotosDisponibles(idOrigen);
+                                this.escriu(this.control.mostrarMotosDisponibles(idOrigen));
                                 this.escriu("Introduce el id de la moto:");
                                 String idMoto = this.llegeixString();
                                 try {
@@ -186,7 +186,7 @@ public class MotoRentals {
                     } catch(ParseException ex) {
                         this.escriu("\t(!) Error en el formato de la fecha.");
                     }
-                    this.escriu("La accion se ha realizado corectamente");
+                    this.escriu("La accion se ha realizado corectamente\n");
                     break;
 
                 case 2:

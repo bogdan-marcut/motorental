@@ -14,7 +14,6 @@ public class Local {
     private String ID;
     private int capacidad;
     private Gerente gestor;
-    private int numMotosDisponibles;
     private ArrayList<Moto> motos;
     private Direccion direccion;
     private ArrayList<Reserva> reservas;
@@ -77,14 +76,11 @@ public class Local {
      * @return the motosDisponibles
      */
     public int getNumMotosDisponibles() {
-        return numMotosDisponibles;
-    }
-
-    /**
-     * @param numMotosDisponibles the motosDisponibles to set
-     */
-    public void setNumMotosDisponibles(int numMotosDisponibles) {
-        this.numMotosDisponibles = numMotosDisponibles;
+        int count = 0;
+        for (Moto mi : motos) {
+            if (mi.getEstado() == 'd') count++;
+        }
+        return count;
     }
 
     /**
@@ -296,7 +292,6 @@ public class Local {
             if(motoReserva != null){
                 motoReserva.setEstado('o');
                 re.iniciarPago();
-                this.numMotosDisponibles--;
             }
         }
     }
@@ -307,7 +302,7 @@ public class Local {
         s += "Capacidad: " + this.capacidad + "\n";
         s += "ID Gerente: " + this.gestor.getId() + "\n";
         s += "Direccion: " + this.direccion;
-        s += "Motos Disponibles: " + this.numMotosDisponibles + "\n";
+        s += "Motos Disponibles: " + this.getNumMotosDisponibles() + "\n";
         return s;
     }
     
