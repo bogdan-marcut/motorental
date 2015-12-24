@@ -174,6 +174,7 @@ public class MotoRentals {
                                 try {
                                     String idReserva = this.control.solicitarMoto((Cliente) user, fechaRegogida, fechaDevolucion, idOrigen, idDestino, idMoto);
                                     this.escriu("-> El id de su reserva es " + idReserva);
+                                    this.escriu("La accion se ha realizado corectamente\n");
                                 } catch (Exception ex) {
                                     this.escriu(ex.getMessage());
                                 }
@@ -186,7 +187,6 @@ public class MotoRentals {
                     } catch(ParseException ex) {
                         this.escriu("\t(!) Error en el formato de la fecha.");
                     }
-                    this.escriu("La accion se ha realizado corectamente\n");
                     break;
 
                 case 2:
