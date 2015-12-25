@@ -8,6 +8,7 @@ import modelo.Cliente;
 import modelo.Datos;
 import modelo.Direccion;
 import modelo.Local;
+import modelo.Moto;
 import modelo.Reserva;
 import modelo.Usuario;
 
@@ -371,5 +372,43 @@ public class MotoRental {
             }
         }
         return informe;
+    }
+
+    /**
+     * Devuelve las motos de un local
+     * 
+     * @param org
+     * @return 
+     */
+    public String mostrarMotos(Local org) {
+        return org.mostrarMotos();
+    }
+
+    /**
+     * Borra una moto del local origen y la añade al local destino
+     * 
+     * @param org
+     * @param dest
+     * @param idMoto 
+     */
+    public void moverMoto(Local org, Local dest, String idMoto) {
+        Moto moto;
+        moto = this.datos.moverMoto(org, idMoto);
+        dest.añadirMoto(moto);
+    }
+
+    /**
+     * Devuelve los locales que estan por encima del 75% de capacidad
+     * 
+     * @return 
+     */
+    public String mostrarLocalesSobre75() {
+        String s = "--- Locales ---\n";
+        for (Local li : datos.getListaLocales()) {
+            if(li.getNumMotosDisponibles() > (li.getCapacidad()*0.75)){
+                s += li;
+            }
+        }
+        return s;
     }
 }

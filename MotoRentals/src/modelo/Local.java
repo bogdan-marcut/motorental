@@ -246,7 +246,9 @@ public class Local {
      * @param moto 
      */
     public void añadirMoto(Moto moto){
-        this.getMotos().add(moto);
+        if(this.motos.size() < this.capacidad){
+            this.getMotos().add(moto);
+        }
     }
     
     /**

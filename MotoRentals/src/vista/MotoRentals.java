@@ -396,22 +396,55 @@ public class MotoRentals {
      */
     public void gestionarMotos(){
         int opcion;
+        String idLocalOrigen;
+        String idLocalDest;
+        int cantidad;
+        int i = 0; 
+        String idMoto;
+        
         do{
             this.escriu("*************** Menu ***************");
-            this.escriu("1. Dar de Alta Moto");
-            this.escriu("2. Dar de Baja Moto");
-            this.escriu("3. Volver");
+            this.escriu("1. MoverMotos");
+            this.escriu("2. Dar de Alta Moto");
+            this.escriu("3. Dar de Baja Moto");
+            this.escriu("4. Volver");
             opcion = solicitarOpcion(); 
             switch(opcion) {
                 case 1:
-                    this.escriu("La accion se ha realizado corectamente");
+                    this.escriu(this.control.mostrarLocalesSobre75());
+                    this.escriu("Introduzca el ID del Local Origen: ");
+                    idLocalOrigen = this.llegeixString();
+                    this.escriu(this.control.mostrarLocales());
+                    this.escriu("Introduzca el ID del Local Destino: ");
+                    idLocalDest = this.llegeixString();
+                    this.escriu("Introduzca la cantidad de motos a mover: ");
+                    cantidad = this.llegeixInt();
+                    for (Local org : this.control.getDatos().getListaLocales()) {
+                        if(org.getID().equals(idLocalOrigen)){
+                            for (Local dest : this.control.getDatos().getListaLocales()){
+                                if(dest.getID().equals(idLocalDest)){
+                                    while(i < cantidad){
+                                        this.escriu(this.control.mostrarMotos(org));
+                                        this.escriu("Introduzca el ID de la moto a mover");
+                                        idMoto = this.llegeixString();
+                                        i += 1;
+                                        this.control.moverMoto(org, dest, idMoto);
+                                    }
+                                }
+                            }
+                        }
+                    }
                     break;
 
                 case 2:
                     this.escriu("La accion se ha realizado corectamente");
                     break;
+                    
+                case 3:
+                    this.escriu("La accion se ha realizado corectamente");
+                    break;
             }
-        } while(opcion != 3);
+        } while(opcion != 4);
     }
     
     /**

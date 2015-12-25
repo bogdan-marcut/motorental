@@ -65,4 +65,7 @@ public class Datos {
         this.listaReservas = listaReservas;
     }
     
+    public Moto moverMoto(Local li,String idMoto){
+        return li.moverMoto(idMoto);
+    }
 }
