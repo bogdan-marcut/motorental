@@ -4,8 +4,6 @@ import controlador.MotoRental;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import modelo.Cliente;
 import modelo.Local;
 import modelo.Usuario;
@@ -245,7 +243,8 @@ public class MotoRentals {
             this.escriu("1. Gestionar Gerentes");
             this.escriu("2. Gestionar Locales");
             this.escriu("3. Cargar Datos");
-            this.escriu("4. Log Out");
+            this.escriu("4. Generar Informe del Mes");
+            this.escriu("5. Log Out");
             
             opcion = solicitarOpcion(); 
             switch(opcion) {
@@ -261,9 +260,24 @@ public class MotoRentals {
                     this.control.cargarDatos();
                     this.escriu("La accion se ha realizado corectamente");
                     break;
+                    
+                case 4:
+                    String format = "MM-yyyy";
+                    this.escriu("Introduce el mes a generar:");
+                    this.escriu("Formato de la fecha: " + format);
+                    String sMes = this.llegeixString();
+                    try {
+                        Date mes = this.control.stringToDate(format, sMes);
+                        String informe = this.control.verInformeDelMes(mes);
+                        this.escriu(informe);
+                    } catch (Exception e) {
+                        this.escriu("\t(!) Error en el formato de la fecha.");
+                    }
+                    this.escriu("La accion se ha realizado corectamente");
+                    break;
             }
             this.escriu("************************************");
-        } while(opcion != 4);
+        } while(opcion != 5);
     }
     
     /**

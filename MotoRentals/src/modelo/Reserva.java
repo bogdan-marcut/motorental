@@ -249,6 +249,17 @@ public class Reserva {
     }
     
     /**
+     * Devuelve un boolean indicando si la reserva en la que nos encontramos
+     * perteece al mes enviado por parametro.
+     * 
+     * @param mes
+     * @return boolean
+     */
+    public boolean mostrarReservasClienteDelMes(Date mes) {
+        return (mes.getMonth() == fechaDevolucion.getMonth());
+    }
+    
+    /**
      * Llama al metodo de añadir coste del pago y actualiza la 
      * fecha de devolucion.
      * 
@@ -271,5 +282,23 @@ public class Reserva {
         s += "Moto: " + moto + "\n";
         s += "Pagament: " + pagament + "\n";
         return s;
+    }
+
+    /**
+     * Devuelve un boolean indicado si el cliente tuvo  penalizacion de la reserva.
+     * 
+     * @return boolean
+     */
+    public boolean haTenidoPenalizacion() {
+       return pagament.getPenalizacion() > 0; 
+    }
+    
+    /**
+     * Devuelve el coste total de la reserva.
+     * 
+     * @return double
+     */
+    public double getCosteTotal() {
+        return pagament.getTotal();
     }
 }

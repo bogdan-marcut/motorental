@@ -143,9 +143,9 @@ public class MotoRentDataManager {
                     }
                 }
                 
-                Date fechaRecogida = new Date(Integer.parseInt(fechaInicio[2]), Integer.parseInt(fechaInicio[1]), Integer.parseInt(fechaInicio[0]),
+                Date fechaRecogida = new Date(Integer.parseInt(fechaInicio[2]), Integer.parseInt(fechaInicio[1])-1, Integer.parseInt(fechaInicio[0]),
                         Integer.parseInt(horaInicio[2]), Integer.parseInt(horaInicio[1]), Integer.parseInt(horaInicio[0]));
-                Date fechaDevolucion = new Date(Integer.parseInt(fechaFin[2]), Integer.parseInt(fechaFin[1]), Integer.parseInt(fechaFin[0]),
+                Date fechaDevolucion = new Date(Integer.parseInt(fechaFin[2]), Integer.parseInt(fechaFin[1])-1, Integer.parseInt(fechaFin[0]),
                         Integer.parseInt(horaFin[2]), Integer.parseInt(horaFin[1]), Integer.parseInt(horaFin[0]));
                 
                 for(Usuario us:this.listaUsuarios){

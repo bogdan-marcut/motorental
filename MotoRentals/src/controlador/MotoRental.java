@@ -8,7 +8,6 @@ import modelo.Cliente;
 import modelo.Datos;
 import modelo.Direccion;
 import modelo.Local;
-import modelo.Moto;
 import modelo.Reserva;
 import modelo.Usuario;
 
@@ -333,5 +332,44 @@ public class MotoRental {
             s += li.mostrarMotos();
         }
         return s;
+    }
+
+    /**
+     * Dado un mes por parametro, genera un detallado con todas las reservas
+     * por cada cliente.
+     * 
+     * @param mes
+     * @return String
+     */
+    public String verInformeDelMes(Date mes) {
+        String informe = "--- Informe del mes ---\n";
+        for (Usuario ci : datos.getListaUsuarios()) {
+            if (ci.isCliente()) {
+                String reservas = "--- Cliente: " + ci.getId() + " ---\n";
+                double costeMes = 0;
+                for (Reserva ri : datos.getListaReservas()) {
+                    if (ri.getCliente().equals(ci)) {
+                        if (ri.mostrarReservasClienteDelMes(mes)) {
+                            Local origen = ri.getLocalOrigen();
+                            Local destino = ri.getLocalDestino();
+                            String locales = "Origen:\n";
+                            locales += origen + "\n";
+                            locales += "Destino:\n";
+                            locales += destino + "\n";
+                            reservas += locales;
+                            if (ri.haTenidoPenalizacion()) {
+                                reservas += "Penalizacion: SI\n";
+                            } else {
+                                reservas += "Penalizacion: NO\n";
+                            }
+                            costeMes += ri.getCosteTotal();
+                        }
+                        reservas += "Coste Total del mes: " + costeMes + "\n";
+                        informe += reservas + "\n";
+                    }
+                }
+            }
+        }
+        return informe;
     }
 }
